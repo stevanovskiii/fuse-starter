@@ -15,3 +15,10 @@ export const user1 = {
     avatar: 'assets/images/avatars/brian-hughes.jpg',
     status: 'online'
 };
+export const user12 = {
+    id    : '1',
+    name  : 'Rade Stevanovski',
+    email : 'rade@admin.com',
+    avatar: 'assets/images/avatars/brian-hughes.jpg',
+    status: 'online'
+};
