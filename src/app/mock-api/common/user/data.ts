@@ -15,3 +15,11 @@ export const user1 = {
     avatar: 'assets/images/avatars/brian-hughes.jpg',
     status: 'online'
 };
+
+export const user2 = {
+    id    : '2',
+    name  : 'Test Test',
+    email : 'rade@admin.com',
+    avatar: 'assets/images/avatars/brian-hughes.jpg',
+    status: 'online'
+};
