@@ -25,6 +25,6 @@ export interface AppConfig
  */
 export const appConfig: AppConfig = {
     layout: 'modern',
-    scheme: 'dark',
+    scheme: 'light',
     theme : 'default'
 };

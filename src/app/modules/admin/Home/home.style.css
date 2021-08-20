@@ -7,8 +7,9 @@
     padding-top: 10px;
 }
 #kopcina{
-    display: flex;
+    display: inline-flex;;
     align-items: center;
+    margin-bottom: 10px;
 }
 .kopcina-text{
     color: #4F46E5;
