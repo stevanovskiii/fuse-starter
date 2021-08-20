@@ -1,55 +1,51 @@
 /* tslint:disable:max-line-length */
 import { FuseNavigationItem } from '@fuse/components/navigation';
 
+export const glavnoMeni: FuseNavigationItem[] = [
+    {
+        id   : 'test',
+        title: 'Test',
+        type : 'basic',
+        icon : 'heroicons_outline:home',
+        link : '/home'
+    }
+]
 export const defaultNavigation: FuseNavigationItem[] = [
     {
-        id   : 'example',
-        title: 'Example',
+        id   : 'home',
+        title: 'Дома',
         type : 'basic',
-        icon : 'heroicons_outline:chart-pie',
-        link : '/example'
-    },
-    {
-        id   : 'example2',
-        title: 'Example2',
-        type : 'basic',
-        icon : 'heroicons_outline:chart-pie',
-        link : '/example2'
-    },
-    {
-        id   : 'example2',
-        title: 'Example2',
-        type : 'basic',
-        icon : 'heroicons_outline:clipboard-check',
-        link : '#'
+        icon : 'heroicons_outline:home',
+        link : '/home'
     }
 ];
 
 
 export const compactNavigation: FuseNavigationItem[] = [
     {
-        id   : 'example',
-        title: 'Example',
+        id   : 'home',
+        title: 'Дома',
         type : 'basic',
-        icon : 'heroicons_outline:chart-pie',
-        link : '/example'
+        icon : 'heroicons_outline:home',
+        link : '/home'
     }
 ];
 export const futuristicNavigation: FuseNavigationItem[] = [
     {
-        id   : 'example',
-        title: 'Example',
+        id   : 'home',
+        title: 'Дома',
         type : 'basic',
-        icon : 'heroicons_outline:chart-pie',
-        link : '/example'
+        icon : 'heroicons_outline:home',
+        link : '/home'
     }
 ];
 export const horizontalNavigation: FuseNavigationItem[] = [
     {
-        id   : 'example',
-        title: 'Example',
+        id   : 'home',
+        title: 'Дома',
         type : 'basic',
-        icon : 'heroicons_outline:chart-pie',
-        link : '/example'
+        icon : 'heroicons_outline:home',
+        link : '/home'
     }
 ];
+
