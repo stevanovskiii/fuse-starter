@@ -1,0 +1,19 @@
+.menu{
+    text-align: center;
+    align-items: center;
+}
+.glavno-meni .meni{
+    padding-top: 10px;
+}
+.btn img{
+    width: 40px; 
+    height: 40px;
+    margin-right: 10px;
+    vertical-align:middle;
+}
+.btn{
+    width: 300px;
+    height: auto;
+    display:inline-block;
+    text-align: center;
+}
