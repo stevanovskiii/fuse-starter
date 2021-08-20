@@ -1,9 +1,11 @@
 <!-- Button -->
 <button
-    mat-icon-button
+    mat-raised-button
+    [color]="'primary'"
     [matMenuTriggerFor]="userActions">
     <span class="relative">
-        <img
+        {{user.name}}
+        <!--<img
             class="w-7 h-7 rounded-full"
             *ngIf="showAvatar && user.avatar"
             [src]="user.avatar">
@@ -17,13 +19,19 @@
                           'bg-amber-500': user.status === 'away',
                           'bg-red-500': user.status === 'busy',
                           'bg-gray-400': user.status === 'not-visible'}"
-        ></span>
+        ></span>-->
     </span>
+    <div class="flex items-center justify-center pl-2">
+        <mat-icon
+            class="icon-size-5"
+            [svgIcon]="'heroicons_solid:chevron-down'"></mat-icon>
+    </div>
 </button>
 
 <mat-menu
     [xPosition]="'before'"
     #userActions="matMenu">
+    <!--
     <button mat-menu-item>
         <span class="flex flex-col leading-none">
             <span>Signed in as</span>
@@ -35,15 +43,16 @@
         <mat-icon [svgIcon]="'heroicons_outline:user-circle'"></mat-icon>
         <span>Profile</span>
     </button>
-    <button mat-menu-item>
-        <mat-icon [svgIcon]="'heroicons_outline:cog'"></mat-icon>
-        <span>Settings</span>
-    </button>
     <button
         mat-menu-item
         [matMenuTriggerFor]="userStatus">
         <mat-icon [svgIcon]="'heroicons_outline:dots-circle-horizontal'"></mat-icon>
         <span>Status</span>
+    </button>
+    -->
+    <button mat-menu-item>
+        <mat-icon [svgIcon]="'heroicons_outline:cog'"></mat-icon>
+        <span>Change password</span>
     </button>
     <mat-divider class="my-2"></mat-divider>
     <button
