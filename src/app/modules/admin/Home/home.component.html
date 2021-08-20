@@ -1,4 +1,4 @@
-<div class="menu flex flex-col flex-auto min-w-0">
+<div  class="menu flex flex-col flex-auto min-w-0">
 <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
@@ -6,15 +6,21 @@
     <div class="flex-auto p-6 sm:p-10">
 
         <!-- CONTENT GOES HERE -->
-        <div class="pocetna-nav">
-            <div class="glavno-meni" id="gl-men">
-                <div class="meni h-100 min-h-100 max-h-100 w-100 min-w-100 max-w-100 border-2 border-solid border-gray-300 rounded-2xl">
-                    <button class="btn btn-outline-primary" ><img src="https://image.flaticon.com/icons/png/512/1946/1946433.png">ДОМА</button>
-                    <button class="btn1"><i class="fa fa-home"></i>ДОМА</button>
-                    <p>test2 dodavenje na drugi raboti</p>
-                    <p>test1</p>
-                    <p>test3</p>
-
+        <div  class="pocetna-nav">
+            <div  class="glavno-meni" id="gl-men">
+                <div  class="meni h-100 min-h-100 max-h-100 w-100 min-w-100 max-w-100 border-2 border-solid border-gray-300 rounded-2xl">
+                    <button  id="kopcina" class="btn btn-outline-light">
+                        <mat-icon id="ikoni" class="icon-size-20" [svgIcon]="'heroicons_outline:home'" [color]="'primary'" ></mat-icon>
+                        <span class="kopcina-text">ДОМА</span>
+                    </button>
+                    <button  id="kopcina" class="btn btn-outline-light">
+                        <mat-icon id="ikoni" class="icon-size-20" [svgIcon]="'heroicons_outline:clipboard-check'" [color]="'primary'" ></mat-icon>
+                        <span class="kopcina-text">ЗАДАЧИ</span>
+                    </button>
+                    <button  id="kopcina" class="btn btn-outline-light">
+                        <mat-icon id="ikoni" class="icon-size-20" [svgIcon]="'heroicons_outline:clipboard-check'" [color]="'primary'" ></mat-icon>
+                        <span class="kopcina-text">Test</span>
+                    </button>
                 </div>
             </div>
         </div>

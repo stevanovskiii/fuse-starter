@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 import { HomeComponent } from 'app/modules/admin/Home/home.component';
+import { MatIconModule } from '@angular/material/icon';
 
 const exampleRoutes: Route[] = [
     {
@@ -14,6 +15,7 @@ const exampleRoutes: Route[] = [
         HomeComponent
     ],
     imports     : [
+        MatIconModule,
         RouterModule.forChild(exampleRoutes)
     ]
 })

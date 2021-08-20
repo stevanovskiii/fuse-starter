@@ -2,18 +2,19 @@
     text-align: center;
     align-items: center;
 }
+
 .glavno-meni .meni{
     padding-top: 10px;
 }
-.btn img{
-    width: 40px; 
-    height: 40px;
-    margin-right: 10px;
-    vertical-align:middle;
+#kopcina{
+    display: flex;
+    align-items: center;
 }
-.btn{
-    width: 300px;
-    height: auto;
-    display:inline-block;
+.kopcina-text{
+    color: #4F46E5;
     text-align: center;
+    display:block;
+}
+#ikoni{
+    
 }
