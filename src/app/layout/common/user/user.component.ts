@@ -7,6 +7,7 @@ import { User } from 'app/core/user/user.types';
 import { UserService } from 'app/core/user/user.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog'
 import { PassChangeComponent } from '../pass-change/pass-change.component';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
     selector       : 'user',
@@ -107,4 +108,5 @@ export class UserComponent implements OnInit, OnDestroy
         dialogConfig.width = "350px";
         this.dialog.open(PassChangeComponent,dialogConfig)
     }
+
 }
