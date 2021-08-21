@@ -10,6 +10,9 @@
     display: inline-flex;;
     align-items: center;
     margin-bottom: 10px;
+    font-size: x-large;
+    width: 350px;
+
 }
 .kopcina-text{
     color: #4F46E5;
