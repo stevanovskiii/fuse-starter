@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { FuseNavigationItem } from '@fuse/components/navigation';
+import { Router } from '@angular/router';
 
 @Component({
     selector     : 'home',
@@ -12,6 +13,13 @@ export class HomeComponent
     /**
      * Constructor
      */
-    constructor()
-{}
+    constructor(private _router: Router)
+{
+    
+}
+Zadaci(): void
+{
+    
+    this._router.navigate(['/zadaci']);
+}
 }
