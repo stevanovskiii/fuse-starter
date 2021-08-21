@@ -75,7 +75,8 @@ export const appRoutes: Route[] = [
         },
         children   : [
             {path: 'home', loadChildren: () => import('app/modules/admin/Home/home.module').then(m => m.HomeModule)},
-            {path: 'example2', loadChildren: () => import('app/modules/admin/example2/example2.module').then(m => m.Example2Module)}
+            {path: 'zadaci', loadChildren: () => import('app/modules/admin/Zadaci/zadaci.module').then(m => m.ZadaciModule)}
+            /*tuka se dodava sekoja nova strana dodaena */
         ]
     }
 ];
