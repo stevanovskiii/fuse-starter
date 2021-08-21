@@ -1,0 +1,12 @@
+#kopcina{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+
+}
+.kopcina-text{
+    color:#000;
+    text-align: center;
+    display:block;
+    font-weight: bold;
+}
