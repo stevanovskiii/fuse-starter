@@ -1,10 +1,13 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 <div class="mat-elevation-z8 data-table">
   <table mat-table class="full-width-table" matSort aria-label="Elements">
 
     <!-- Id Column -->
     <ng-container matColumnDef="buttons">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Опции</th>
-      <td mat-cell *matCellDef="let row"><span class="dot" id="greenDot"></span><button id="viewButton" routerLink="/Details">View</button><button id="endButton" style="background-color:red">End</button></td>
+      <td mat-cell *matCellDef="let row"><span class="dot" id="greenDot"></span>
+        <button><mat-icon  id="ikoni" class="icon-size-5" [svgIcon]="'heroicons_outline:eye'" [color]="'primary'" ></mat-icon></button>
+        <button><mat-icon  id="ikoni" class="icon-size-5" [svgIcon]="'heroicons_outline:trash'" [color]="'primary'" ></mat-icon></button>
     </ng-container>
 
     <!-- Id Column -->
