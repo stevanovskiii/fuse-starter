@@ -15,6 +15,7 @@ import { DenseLayoutModule } from 'app/layout/layouts/vertical/dense/dense.modul
 import { FuturisticLayoutModule } from 'app/layout/layouts/vertical/futuristic/futuristic.module';
 import { ThinLayoutModule } from 'app/layout/layouts/vertical/thin/thin.module';
 import { SharedModule } from 'app/shared/shared.module';
+import { CreateTaskComponent } from './common/create-task/create-task.component';
 
 const layoutModules = [
     // Empty
@@ -37,7 +38,8 @@ const layoutModules = [
 
 @NgModule({
     declarations: [
-        LayoutComponent
+        LayoutComponent,
+        CreateTaskComponent
     ],
     imports     : [
         MatIconModule,

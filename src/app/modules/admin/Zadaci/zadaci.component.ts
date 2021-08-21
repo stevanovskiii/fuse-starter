@@ -1,4 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { CreateTaskComponent } from 'app/layout/common/create-task/create-task.component';
+
 
 @Component({
     selector     : 'zadaci',
@@ -8,10 +11,19 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class ZadaciComponent
 {
+
     /**
      * Constructor
      */
-    constructor()
+    constructor(private dialog: MatDialog)
     {
+        
+    }
+    onCreate(){
+        const dialogConfig = new MatDialogConfig();
+        dialogConfig.disableClose = true;
+        dialogConfig.autoFocus = true;
+        dialogConfig.width = "400px";
+        this.dialog.open(CreateTaskComponent,dialogConfig)
     }
 }

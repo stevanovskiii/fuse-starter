@@ -1,0 +1,54 @@
+<div class="Forma">
+<form class="DodavanjeProekti">
+    <h3>Додавање на задачи</h3>
+<div>
+    <label for="">Име на проект</label>
+    <input type="text" class='form-control'>
+</div>
+
+<div>
+    <label for="">Број на налог</label>
+    <input type="text" class='form-control'>
+</div>
+
+<div>
+    <label for="">Датум на почеток</label>
+    <input type="date" class='form-control'>
+</div>
+
+<div>
+    <label for="">Датум на завршување</label>
+    <input type="date" class='form-control'>
+</div>
+
+<div>
+    <label for="">Локација:</label>
+    <select class="form-select">
+        <option selected="selected"></option>
+        <option label="Аеродром" value="1037">Аеродром</option>
+        <option label="Битола" value="29">Битола</option>
+        <option label="Велес" value="35">Велес</option>
+        <option label="Карпош" value="1038">Карпош</option>
+        <option label="Крани" value="1041">Крани</option>
+        <option label="Охрид" value="31">Охрид</option>
+        <option label="Прилеп" value="33">Прилеп</option>
+        <option label="Скопје" value="34">Скопје</option>
+    </select>
+</div>
+
+<div>
+    <label for="">Времетрање</label>
+    <input alt="Внеси часови" type="text" class='form-control'>
+</div>
+
+<div>
+    <label for="">Опис</label>
+    <input type="text-box" class='form-control'>
+</div>
+
+<div>
+    <button type="button" class="btn btn-outline-danger" (click)="Close()">Откажи</button>
+    <button type="button" class="btn btn-outline-success" >Додај</button>
+</div>
+</form>
+</div>
