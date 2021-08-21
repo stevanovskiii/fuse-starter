@@ -7,15 +7,14 @@
             </div>
 
             <!-- Title -->
-            <div class="mt-8 text-4xl font-extrabold tracking-tight leading-tight">Sign up</div>
+            <div class="mt-8 text-4xl font-extrabold tracking-tight leading-tight">Регистрација</div>
             <div class="flex items-baseline mt-0.5 font-medium">
-                <div>Already have an account?</div>
+                <div>Дали веќе имате профил?</div>
                 <a
                     class="ml-1 text-primary-500 hover:underline"
-                    [routerLink]="['/pages/authentication/sign-in']">Sign in
+                    [routerLink]="['/sign-in']">Најави се
                 </a>
             </div>
-
             <!-- Alert -->
             <fuse-alert
                 class="mt-8 -mb-4"
@@ -34,34 +33,34 @@
 
                 <!-- Name field -->
                 <mat-form-field class="w-full">
-                    <mat-label>Full name</mat-label>
+                    <mat-label>Име и презиме</mat-label>
                     <input
                         id="name"
                         matInput
                         [formControlName]="'name'">
                     <mat-error *ngIf="signUpForm.get('name').hasError('required')">
-                        Full name is required
+                        Целосното име е задолжително
                     </mat-error>
                 </mat-form-field>
 
                 <!-- Email field -->
                 <mat-form-field class="w-full">
-                    <mat-label>Email address</mat-label>
+                    <mat-label>Е-маил</mat-label>
                     <input
                         id="email"
                         matInput
                         [formControlName]="'email'">
                     <mat-error *ngIf="signUpForm.get('email').hasError('required')">
-                        Email address is required
+                        Е-маил адресата е задолжителна
                     </mat-error>
                     <mat-error *ngIf="signUpForm.get('email').hasError('email')">
-                        Please enter a valid email address
+                        Внесете валидна емаил адреса
                     </mat-error>
                 </mat-form-field>
 
                 <!-- Password field -->
                 <mat-form-field class="w-full">
-                    <mat-label>Password</mat-label>
+                    <mat-label>Лозинка</mat-label>
                     <input
                         id="password"
                         matInput
@@ -83,33 +82,33 @@
                             [svgIcon]="'heroicons_solid:eye-off'"></mat-icon>
                     </button>
                     <mat-error>
-                        Password is required
+                        Лозинката е задолжителна
                     </mat-error>
                 </mat-form-field>
 
-                <!-- Company field -->
+                <!-- Company field компанијата не е потребна мислам
                 <mat-form-field class="w-full">
                     <mat-label>Company</mat-label>
                     <input
                         id="company-confirm"
                         matInput
                         [formControlName]="'company'">
-                </mat-form-field>
+                </mat-form-field>-->
 
                 <!-- ToS and PP -->
                 <div class="inline-flex items-end w-full mt-1.5">
                     <mat-checkbox
                         [color]="'primary'"
                         [formControlName]="'agreements'">
-                        <span>I agree to the</span>
+                        <span>Ги прифаќам</span>
                         <a
                             class="ml-1 text-primary-500 hover:underline"
-                            [routerLink]="['./']">Terms of Service
+                            [routerLink]="['./']">Условите за користење
                         </a>
-                        <span>and</span>
+                        <span>и</span>
                         <a
                             class="ml-1 text-primary-500 hover:underline"
-                            [routerLink]="['./']">Privacy Policy
+                            [routerLink]="['./']">Правилата
                         </a>
                     </mat-checkbox>
                 </div>
@@ -122,7 +121,7 @@
                     [disabled]="signUpForm.disabled"
                     (click)="signUp()">
                     <span *ngIf="!signUpForm.disabled">
-                        Create your free account
+                        Регистрирај се
                     </span>
                     <mat-progress-spinner
                         *ngIf="signUpForm.disabled"
@@ -157,9 +156,10 @@
         <!-- Content -->
         <div class="z-10 relative w-full max-w-2xl">
             <div class="text-7xl font-bold leading-none text-gray-100">
-                <div>Welcome to</div>
-                <div>our community</div>
+                <div>Ticketing System</div>
+                <div>Тикет систем</div>
             </div>
+<!--
             <div class="mt-6 text-lg tracking-tight leading-6 text-gray-400">
                 Fuse helps developers to build organized and well coded dashboards full of beautiful and rich modules.
                 Join us and start building your application today.
@@ -181,6 +181,7 @@
                 </div>
                 <div class="ml-4 font-medium tracking-tight text-gray-400">More than 17k people joined us, it's your turn</div>
             </div>
+-->
         </div>
     </div>
 </div>
