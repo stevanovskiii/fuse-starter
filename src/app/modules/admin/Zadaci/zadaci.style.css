@@ -1,10 +1,10 @@
-#kopcina{
+#KreiranZadacaBtn{
     display: flex;
     align-items: center;
     margin-bottom: 10px;
 
 }
-.kopcina-text{
+.KreiranZadacaBtn-text{
     color:#000;
     text-align: center;
     display:block;
@@ -15,11 +15,6 @@
     position:absolute;/* sega e reseno istiot problem so leviot swipe i za kopceto (raboti sega i vertikalo)*/
     top:15px;
     left:15px;
-    display: inline-flex;;
-    align-items: center;
-    margin-bottom: 10px;
-    font-size: x-large;
-    width: 350px;
 }
 
 .flex{/* ova go resava problemot so tabelata i menito, flex ti e divot osnoven */
