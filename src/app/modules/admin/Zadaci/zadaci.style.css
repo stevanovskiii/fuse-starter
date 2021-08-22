@@ -12,7 +12,9 @@
 }
 
 #kopcina{
-    position:fixed;/* ova go resava kopceto no sepak problem e toa sto i vertikalno stanua fiksno a ne samo horizontalno, to est treba drugo resenie */
+    position:absolute;/* sega e reseno istiot problem so leviot swipe i za kopceto (raboti sega i vertikalo)*/
+    top:15px;
+    left:15px;
 }
 
 .flex{/* ova go resava problemot so tabelata i menito, flex ti e divot osnoven */
