@@ -8,7 +8,7 @@
   box-shadow: 0px 32px 64px 0px rgba(0,0,0,0.2);
 }
 button{
-  margin-right:0px;
+  margin: 2px;
   height:30px;
   width:70px;
   text-align:center;
@@ -25,4 +25,7 @@ button{
 
 #greenDot{
   background-color:green;
+}
+.Kopcina{
+  position: fixed;
 }
