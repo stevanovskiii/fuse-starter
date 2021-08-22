@@ -29,3 +29,7 @@ button{
 .Kopcina{
   position: fixed;
 }
+mat-paginator{/* ova go resava dolniot del od tabelata no sepak problem e toa sto i vertikalno stanua fiksno a ne samo horizontalno, to est treba drugo resenie */
+  position: fixed;
+  width:98%;
+}

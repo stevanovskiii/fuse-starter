@@ -10,3 +10,11 @@
     display:block;
     font-weight: bold;
 }
+
+#kopcina{
+    position:fixed;/* ova go resava kopceto no sepak problem e toa sto i vertikalno stanua fiksno a ne samo horizontalno, to est treba drugo resenie */
+}
+
+.flex{/* ova go resava problemot so tabelata i menito, flex ti e divot osnoven */
+    overflow-x:auto;
+}
