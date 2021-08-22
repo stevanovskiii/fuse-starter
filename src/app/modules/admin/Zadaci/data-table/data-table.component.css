@@ -26,9 +26,8 @@ button{
 #greenDot{
   background-color:green;
 }
-.Kopcina{
-  position: fixed;
-}
+/*trgnato da ne se fixed kopcinata poubo e da ne se */
+
 mat-paginator{/* sega e reseno za dolnot del od tabelata toa sto neli pri svajp se gubi (i raboti i vertikalno)*/
   position: absolute;
   width:98%;
