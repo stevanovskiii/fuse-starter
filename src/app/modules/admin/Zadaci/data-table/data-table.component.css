@@ -24,7 +24,7 @@
 
 mat-paginator{/* sega e reseno za dolnot del od tabelata toa sto neli pri svajp se gubi (i raboti i vertikalno)*/
   position: absolute;
-  width:98%;
+  width:100%;
 }
 
 .KopcinaLeft{/* so ovie dolnive cetiri se praat kopcianta da bidat kaj sto treba (od button samo heighti left go menvas soodvetno drugite ne igraat uloga) */
