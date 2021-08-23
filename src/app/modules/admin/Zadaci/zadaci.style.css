@@ -20,3 +20,31 @@
 .flex{/* ova go resava problemot so tabelata i menito, flex ti e divot osnoven */
     overflow-x:auto;
 }
+#zelenoKopce{
+    background-color: green;
+}
+#zoltoKopce{
+    background-color: yellow;
+}
+#crvenoKopce{
+    background-color: red;
+}
+.MozenStatus{
+height: 15px;
+  width: 15px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right:5px;
+      
+}
+.SortiranjeDesno{
+    position: absolute;
+    text-align: right;
+    margin: 0px;
+    margin-left: 5px;
+}
+.StatusBtn{
+    margin-top: 70px;
+    
+}
