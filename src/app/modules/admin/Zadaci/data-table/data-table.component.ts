@@ -4,6 +4,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { parseString } from 'rrule/dist/esm/src/parsestring';/* ova e za funkcijata koja nema nikakva korist za sega, daa so kopcina() */
 import { DataTableDataSource, DataTableItem } from './data-table-datasource';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ViewTaskComponent } from 'app/layout/common/view-task/view-task.component';
 
 @Component({
   selector: 'app-data-table',/*sleketorov e e bas ko so si mislev to est ne e data-table*/
@@ -19,7 +21,7 @@ export class DataTableComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['buttons','id', 'name', 'task', 'Почнува',	'Завршува',	'Категории',	'Статус',	'Приоритет'];
 
-  constructor() {
+  constructor(private dialog: MatDialog) {
     this.dataSource = new DataTableDataSource();
   }
 
@@ -27,6 +29,14 @@ export class DataTableComponent implements AfterViewInit {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
+  }
+
+  View(){
+      const dialogConfig = new MatDialogConfig();
+        dialogConfig.disableClose = true;
+        dialogConfig.autoFocus = true;
+        dialogConfig.width = "400px";
+        this.dialog.open(ViewTaskComponent,dialogConfig)    
   }
 
 

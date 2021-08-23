@@ -15,7 +15,7 @@ export class ZadaciComponent
     /**
      * Constructor
      */
-    constructor(private dialog: MatDialog)
+    constructor(private dialog: MatDialog) 
     {
         
     }
