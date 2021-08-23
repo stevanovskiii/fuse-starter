@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
+import { parseString } from 'rrule/dist/esm/src/parsestring';/* ova e za funkcijata koja nema nikakva korist za sega, daa so kopcina() */
 import { DataTableDataSource, DataTableItem } from './data-table-datasource';
 
 @Component({
@@ -27,4 +28,23 @@ export class DataTableComponent implements AfterViewInit {
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
   }
+
+
+  kopcina(){/* ovaa funkcija zasega nema korsit ama neka stoj za sekoj slucaj dane se naj za neso */
+    if(true){
+      let a = window.document.getElementsByClassName('kopce')!;
+      for(let i=0;i<a.length;i++){
+
+        var b = ((a[i] as HTMLElement).style.top);
+
+
+
+        var c=parseInt((a[i] as HTMLElement).style.top,10);   
+        
+      }
+      /* so ovaa kje gi praev kopcinata ama na krajot samo styleot trebalo da se meni  */
+    }
+    
+  }
+  
 }

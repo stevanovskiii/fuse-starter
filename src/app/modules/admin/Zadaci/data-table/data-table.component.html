@@ -6,9 +6,13 @@
     <ng-container matColumnDef="buttons">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Опции</th>
       <td mat-cell *matCellDef="let row">
-        <div class="Kopcina">
-          <button class="btn-info">Поглед</button><br>
-          <button class="btn-dark">Крај</button>
+        <div class="KopcinaLeft">
+          <div id="gorno">
+            <button (click)='kopcina()' class="btn-info kopce">Поглед</button><br>
+          </div>
+          <div id="dolno">
+            <button class="btn-dark kopce">Крај</button>
+          </div>
         </div>
       </td>
       

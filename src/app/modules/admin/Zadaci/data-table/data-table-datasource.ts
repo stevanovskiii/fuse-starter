@@ -18,7 +18,7 @@ export interface DataTableItem {
 
 // TODO: replace this with real data from your application
 const EXAMPLE_DATA: DataTableItem[] = [
-  {Client: '/', ProjectName: 'redizajn', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
+  {Client: '/', ProjectName: 'redizajn ova e podlogo za da se vidi kako rabotat kopcianta', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
   {Client: '/', ProjectName: 'redizajn', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
   {Client: '/', ProjectName: 'redizajn', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
   {Client: '/', ProjectName: 'redizajn', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
