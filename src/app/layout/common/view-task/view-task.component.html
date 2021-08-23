@@ -1,18 +1,18 @@
 <div id="mainDiv">
         <form>
-    
+            <h3>Податоци за проектната задачата од Проект -</h3>
             <div>
                 <label for="ProjectName">
                     Име на задача<span style="color:red">*</span>
                 </label>
                 <input id="nameInput" type="text-box" class='form-control'>
             </div>
-            <!--
+
             <div>
                 <label for="ProjectName">
                     Катеорија<span style="color:red">*</span>
                 </label>
-                <select formControlName="country">
+                <select class='form-control'>
                   <option>English</option>
                   <option>Македонски</option>
                 </select>
@@ -22,7 +22,7 @@
                 <label for="ProjectName">
                     Приоритет<span style="color:red">*</span>
                 </label>
-                <select formControlName="country">
+                <select class='form-control'>
                   <option>English</option>
                   <option>Македонски</option>
                 </select>
@@ -32,7 +32,7 @@
                 <label for="ProjectName">
                     Одговорен<span style="color:red">*</span>
                 </label>
-                <select formControlName="country">
+                <select class='form-control'>
                   <option>English</option>
                   <option>Македонски</option>
                 </select>
@@ -42,7 +42,7 @@
                 <label for="ProjectName">
                     Клиент<span style="color:red">*</span>
                 </label>
-                <select formControlName="country">
+                <select class='form-control'>
                   <option>English</option>
                   <option>Македонски</option>
                 </select>
@@ -52,12 +52,14 @@
                 <label for="ProjectName">
                     Статус<span style="color:red">*</span>
                 </label>
-                <select formControlName="country">
+                <select class='form-control select'>
                   <option>English</option>
                   <option>Македонски</option>
                 </select>
             </div>
-    -->
+        
+        <div id="OtherData">
+            <h5>Дополнителни податоци  \/</h5>   
             <div>
                 <label for="name">
                     Датум на почеток
@@ -92,12 +94,12 @@
                 </label>
                 <input id="nameInput" type="text-box" class='form-control'>
             </div>
-            <!--
+
             <div>
                 <label for="ProjectName">
                     Зависи од задача
                 </label>
-                <select formControlName="country">
+                <select class='form-control'>
                   <option>English</option>
                   <option>Македонски</option>
                 </select>
@@ -109,15 +111,16 @@
                 </label>
                 <textarea id="nameInput" type="text-box" class='form-control'></textarea>
             </div>
-    -->
+        </div> 
+
             <div id="ClientData">
-                <h3>Податоци за избраниот клиент</h3><button>\/</button>
+                <h5>Податоци за избраниот клиент  \/</h5>
                 <div id="ClientDataDrop">
                 <div>
                     <label for="ProjectName">
                         Реон
                     </label>
-                    <select formControlName="country">
+                    <select class='form-control'>
                       <option>English</option>
                       <option>Македонски</option>
                     </select>
@@ -153,15 +156,20 @@
     
                 </div>
             </div>
-        
-            <button class="button" type="submit">Избери слика</button>
-            <button class="button" type="submit">Прикачи слика</button>
-            <button class="button" type="submit">Прегледај слики</button>
-            <button class="button" type="submit">Коментари</button>
-            <button class="button" type="submit">Работа</button>
-            <button class="button" type="submit">Прикачи фајл</button>
-            <button routerLink="/UserHome" class="button" class="btn btn-outline-danger" (click)="End">Заврши</button>
-            <button class="button" class="btn btn-outline-success" (click)="Close">Откажи</button>
+            
+            <div>
+                <button class="btn btn-outline-primary" type="submit">Избери слика</button>
+                <button class="btn btn-outline-primary" type="submit">Прикачи слика</button>
+                <button class="btn btn-outline-primary" type="submit">Прегледај слики</button>
+                <button class="btn btn-outline-primary" type="submit">Коментари</button>
+                <button class="btn btn-outline-primary" type="submit">Работа</button>
+                <button class="btn btn-outline-primary" type="submit">Прикачи фајл</button>
+            </div>
+            <hr/>
+            <div>
+                <button routerLink="/UserHome" class="button" class="btn btn-outline-danger" (click)="End()">Заврши</button>
+                <button class="button" class="btn btn-outline-success" (click)="Close()">Откажи</button>
+            </div>
           
           </form>
 </div>

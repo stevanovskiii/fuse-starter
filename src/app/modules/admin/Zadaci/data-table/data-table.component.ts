@@ -36,6 +36,7 @@ export class DataTableComponent implements AfterViewInit {
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
         dialogConfig.width = "400px";
+        dialogConfig.height = "1400px";
         this.dialog.open(ViewTaskComponent,dialogConfig)    
   }
 
