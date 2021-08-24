@@ -9,13 +9,13 @@
     overflow-x:auto;
 }
 #zelenoKopce{
-    background-color: green;
+    background-color: #73ffa4;
 }
 #zoltoKopce{
-    background-color: yellow;
+    background-color: #f3ff73;
 }
 #crvenoKopce{
-    background-color: red;
+    background-color: #ff8181;
 }
 .MozenStatus{
 height: 15px;
