@@ -64,14 +64,14 @@
                 <label for="name">
                     Датум на почеток
                 </label>
-                <input id="nameInput" type="text-box" class='form-control'>
+                <input id="nameInput" type="date" class='form-control'>
             </div>
         
             <div>
                 <label for="name">
                     Датум на завршување
                 </label>
-                <input id="passwordInput" type="text-box" class='form-control'>
+                <input id="passwordInput" type="date" class='form-control'>
             </div>
     
             <div>
@@ -109,7 +109,7 @@
                 <label for="name">
                     Опис
                 </label>
-                <textarea id="nameInput" type="text-box" class='form-control'></textarea>
+                <textarea id="Opis" type="text-box" class='form-control'></textarea>
             </div>
         </div> 
 
@@ -165,19 +165,21 @@
                 <tr>
                     <td><button class="mat-focus-indicator mat-raised-button mat-button-base mat-stroked-button mat-icon-no-color gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:photograph'" [color]="'primary'" ></mat-icon>Избери слика</button></td>
                     <td><button class="mat-focus-indicator mat-raised-button mat-button-base mat-stroked-button mat-icon-no-color gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:upload'" [color]="'primary'" ></mat-icon>Прикачи слика</button></td>
-                    <td><button class="mat-focus-indicator mat-raised-button mat-button-base mat-stroked-button mat-icon-no-color gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:duplicate'" [color]="'primary'" ></mat-icon>Види слики</button></td>
                 </tr>
                 <tr>
+                    <td><button class="mat-focus-indicator mat-raised-button mat-button-base mat-stroked-button mat-icon-no-color gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:duplicate'" [color]="'primary'" ></mat-icon>Види слики</button></td>
                     <td><button class="mat-focus-indicator mat-raised-button mat-button-base mat-stroked-button mat-icon-no-color gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:annotation'" [color]="'primary'" ></mat-icon>Коментари</button></td>
+                </tr>
+                <tr>
                     <td><button class="mat-focus-indicator mat-raised-button mat-button-base mat-stroked-button mat-icon-no-color gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:clock'" [color]="'primary'" ></mat-icon>Работа</button></td>
                     <td><button class="mat-focus-indicator mat-raised-button mat-button-base mat-stroked-button mat-icon-no-color gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:paper-clip'" [color]="'primary'" ></mat-icon>Прикачи фајл</button></td>
                 </tr>
             </table>  
-               
+
         </div>
         <hr/>
-        <div>
-            <button routerLink="/UserHome" class="button" class="mat-focus-indicator mat-raised-button mat-button-base mat-primary" (click)="End()">Заврши</button>
-            <button class="button" class="mat-focus-indicator mat-raised-button mat-button-base mat-accent " (click)="Close()">Откажи</button>
+        <div id='dolni2BtnDiv'>
+            <button class="button" class="mat-focus-indicator mat-raised-button mat-button-base mat-accent" (click)="Close()">Откажи</button>
+            <button class="button" class="mat-focus-indicator mat-raised-button mat-button-base mat-primary" (click)="End()">Заврши</button>
         </div>
 </div>
