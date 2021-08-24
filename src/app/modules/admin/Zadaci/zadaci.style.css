@@ -33,9 +33,10 @@ height: 15px;
     margin-left: 5px;
 }
 .StatusBtn{
-    margin-top: 70px;
-    
+    margin-top: 50px; /* ova tie za rastojanie pomegju status i kreiraj zadaca kopce gore */
+    margin-left: 10px;/* nekase i malce podesno */
 }
+
 .GlavnaKlasa{
    
 }

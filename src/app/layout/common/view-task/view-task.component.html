@@ -155,22 +155,29 @@
                 </div>
     
                 </div>
-            </div>
-            
-            <div>
-                <button class="mat-focus-indicator mat-raised-button mat-button-base mat-stroked-button mat-icon-no-color" type="submit"><mat-icon class="icon-size-5" [svgIcon]="'heroicons_outline:photograph'" [color]="'primary'" ></mat-icon>Избери слика</button>
-                <button class="mat-focus-indicator mat-raised-button mat-button-base mat-stroked-button mat-icon-no-color" type="submit"><mat-icon class="icon-size-5" [svgIcon]="'heroicons_outline:upload'" [color]="'primary'" ></mat-icon>Прикачи слика</button>
-                <button class="mat-focus-indicator mat-raised-button mat-button-base mat-stroked-button mat-icon-no-color" type="submit"><mat-icon class="icon-size-5" [svgIcon]="'heroicons_outline:duplicate'" [color]="'primary'" ></mat-icon>Прегледај слики</button>
-                <button class="mat-focus-indicator mat-raised-button mat-button-base mat-stroked-button mat-icon-no-color" type="submit"><mat-icon class="icon-size-5" [svgIcon]="'heroicons_outline:annotation'" [color]="'primary'" ></mat-icon>Коментари</button>
-                <button class="mat-focus-indicator mat-raised-button mat-button-base mat-stroked-button mat-icon-no-color" type="submit"><mat-icon class="icon-size-5" [svgIcon]="'heroicons_outline:clock'" [color]="'primary'" ></mat-icon>Работа</button>
-                <button class="mat-focus-indicator mat-raised-button mat-button-base mat-stroked-button mat-icon-no-color" type="submit"><mat-icon class="icon-size-5" [svgIcon]="'heroicons_outline:paper-clip'" [color]="'primary'" ></mat-icon>Прикачи фајл</button>
-            </div>
-            <hr/>
-            <div>
-                <button routerLink="/UserHome" class="button" class="mat-focus-indicator mat-raised-button mat-button-base mat-primary" (click)="End()">Заврши</button>
-                <button class="button" class="mat-focus-indicator mat-raised-button mat-button-base mat-accent " (click)="Close()">Откажи</button>
-            </div>
+            </div>  
           
           </form>
+        
+          <div id="gorni6btnDiv">
+                
+            <table>
+                <tr>
+                    <td><button class="mat-focus-indicator mat-raised-button mat-button-base mat-stroked-button mat-icon-no-color gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:photograph'" [color]="'primary'" ></mat-icon>Избери слика</button></td>
+                    <td><button class="mat-focus-indicator mat-raised-button mat-button-base mat-stroked-button mat-icon-no-color gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:upload'" [color]="'primary'" ></mat-icon>Прикачи слика</button></td>
+                    <td><button class="mat-focus-indicator mat-raised-button mat-button-base mat-stroked-button mat-icon-no-color gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:duplicate'" [color]="'primary'" ></mat-icon>Види слики</button></td>
+                </tr>
+                <tr>
+                    <td><button class="mat-focus-indicator mat-raised-button mat-button-base mat-stroked-button mat-icon-no-color gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:annotation'" [color]="'primary'" ></mat-icon>Коментари</button></td>
+                    <td><button class="mat-focus-indicator mat-raised-button mat-button-base mat-stroked-button mat-icon-no-color gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:clock'" [color]="'primary'" ></mat-icon>Работа</button></td>
+                    <td><button class="mat-focus-indicator mat-raised-button mat-button-base mat-stroked-button mat-icon-no-color gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:paper-clip'" [color]="'primary'" ></mat-icon>Прикачи фајл</button></td>
+                </tr>
+            </table>  
+               
+        </div>
+        <hr/>
+        <div>
+            <button routerLink="/UserHome" class="button" class="mat-focus-indicator mat-raised-button mat-button-base mat-primary" (click)="End()">Заврши</button>
+            <button class="button" class="mat-focus-indicator mat-raised-button mat-button-base mat-accent " (click)="Close()">Откажи</button>
+        </div>
 </div>
-
