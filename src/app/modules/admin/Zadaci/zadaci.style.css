@@ -1,15 +1,3 @@
-#KreiranZadacaBtn{
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-
-}
-.KreiranZadacaBtn-text{
-    color:#000;
-    text-align: center;
-    display:block;
-    font-weight: bold;
-}
 
 #KreiranZadacaBtn{
     position:absolute;/* sega e reseno istiot problem so leviot swipe i za kopceto (raboti sega i vertikalo)*/
