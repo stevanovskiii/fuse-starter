@@ -1,0 +1,30 @@
+<form>
+    <div>
+        <h3>Прикачи фајл</h3>
+    </div>
+    <div>
+        <label for="">Задача</label>
+        <select class="form-select">
+            <option>Задача 1</option>
+            <option>Задача 2</option>
+          </select>
+    </div>
+
+    <button class="mat-focus-indicator mat-raised-button mat-button-base mat-stroked-button mat-icon-no-color gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:document-add'" [color]="'primary'" ></mat-icon>Избери фајл</button>
+    <button class="mat-focus-indicator mat-raised-button mat-button-base mat-stroked-button mat-icon-no-color gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:upload'" [color]="'primary'" ></mat-icon>Прикачи фајл</button>
+
+    <hr/>
+
+    <div>
+        <input type="text" class='form-control' placeholder="Пребарувај по име">
+    </div>
+
+    <hr/>
+    
+    <h5>Нема податоци</h5>
+
+    <hr/>
+
+    <button  (click)='Close()' type="button" class="mat-focus-indicator mat-raised-button mat-button-base mat-accent">Откажи</button>
+    
+    </form>

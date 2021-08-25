@@ -17,6 +17,10 @@ import { ThinLayoutModule } from 'app/layout/layouts/vertical/thin/thin.module';
 import { SharedModule } from 'app/shared/shared.module';
 import { CreateTaskComponent } from './common/create-task/create-task.component';
 import { ViewTaskComponent } from './common/view-task/view-task.component';
+import { CommentsComponent } from './common/comments/comments.component';
+import { WorkComponent } from './common/work/work.component';
+import { UploadFileComponent } from './common/upload-file/upload-file.component';
+import { GalleryComponent } from './common/gallery/gallery.component';
 
 const layoutModules = [
     // Empty
@@ -41,7 +45,11 @@ const layoutModules = [
     declarations: [
         LayoutComponent,
         CreateTaskComponent,
-        ViewTaskComponent
+        ViewTaskComponent,
+        CommentsComponent,
+        WorkComponent,
+        UploadFileComponent,
+        GalleryComponent
     ],
     imports     : [
         MatIconModule,

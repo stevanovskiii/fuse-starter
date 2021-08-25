@@ -91,7 +91,7 @@
                 <label for="name">
                     Времетраење
                 </label>
-                <input id="nameInput" type="text-box" class='form-control'>
+                <input id="nameInput" type="text-box" class='form-control' placeholder="Внеси часови">
             </div>
     
             <div>
@@ -105,7 +105,7 @@
                 <label for="name">
                     Предефинирани задачи
                 </label>
-                <input id="nameInput" type="text-box" class='form-control'>
+                <input id="nameInput" type="text-box" class='form-control' placeholder="Избери предефинирани задачи">
             </div>
 
             <div>
@@ -189,12 +189,12 @@
                     <td><button class="mat-focus-indicator mat-raised-button mat-button-base mat-stroked-button mat-icon-no-color gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:upload'" [color]="'primary'" ></mat-icon>Прикачи слика</button></td>
                 </tr>
                 <tr>
-                    <td><button class="mat-focus-indicator mat-raised-button mat-button-base mat-stroked-button mat-icon-no-color gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:duplicate'" [color]="'primary'" ></mat-icon>Види слики</button></td>
-                    <td><button class="mat-focus-indicator mat-raised-button mat-button-base mat-stroked-button mat-icon-no-color gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:annotation'" [color]="'primary'" ></mat-icon>Коментари</button></td>
+                    <td><button (click)="OpenGallery()"class="mat-focus-indicator mat-raised-button mat-button-base mat-stroked-button mat-icon-no-color gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:duplicate'" [color]="'primary'" ></mat-icon>Види слики</button></td>
+                    <td><button (click)="OpenComments()" class="mat-focus-indicator mat-raised-button mat-button-base mat-stroked-button mat-icon-no-color gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:annotation'" [color]="'primary'" ></mat-icon>Коментари</button></td>
                 </tr>
                 <tr>
-                    <td><button class="mat-focus-indicator mat-raised-button mat-button-base mat-stroked-button mat-icon-no-color gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:clock'" [color]="'primary'" ></mat-icon>Работа</button></td>
-                    <td><button class="mat-focus-indicator mat-raised-button mat-button-base mat-stroked-button mat-icon-no-color gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:paper-clip'" [color]="'primary'" ></mat-icon>Прикачи фајл</button></td>
+                    <td><button (click)="OpenWork()" class="mat-focus-indicator mat-raised-button mat-button-base mat-stroked-button mat-icon-no-color gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:clock'" [color]="'primary'" ></mat-icon>Работа</button></td>
+                    <td><button (click)="OpenUploadFile()" class="mat-focus-indicator mat-raised-button mat-button-base mat-stroked-button mat-icon-no-color gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:paper-clip'" [color]="'primary'" ></mat-icon>Прикачи фајл</button></td>
                 </tr>
             </table>  
 

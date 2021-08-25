@@ -1,0 +1,31 @@
+<form>
+    <div>
+        <h3>Коментари</h3>
+    </div>
+
+    <div>
+        <label for="ProjectName">
+            Тип на порака<span style="color:red">*</span>
+        </label>
+        <select class="form-select">
+          <option>Напомена</option>
+          <option>Завршен предмет</option>
+          <option>Материјално влез</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="name">
+            Опис
+        </label>
+        <textarea id="Opis" type="text-box" class='form-control'></textarea>
+    </div>
+    
+    <hr/>
+
+    <div>
+        <button type="button" class="mat-focus-indicator mat-raised-button mat-button-base mat-accent" (click)="Close()">Откажи</button>
+        <button type="button" class="mat-focus-indicator mat-raised-button mat-button-base mat-primary" (click)="Save()">Зачувај</button>
+    </div>
+    
+    </form>

@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { DataTableComponent } from 'app/modules/admin/Zadaci/data-table/data-table.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { CommentsComponent } from '../comments/comments.component';
+import { UploadFileComponent } from '../upload-file/upload-file.component';
+import { WorkComponent } from '../work/work.component';
+import { GalleryComponent } from '../gallery/gallery.component';
+
 
 @Component({
   selector: 'app-view-task',
@@ -10,7 +15,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 })
 export class ViewTaskComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<DataTableComponent>,) { } 
+  constructor(public dialogRef: MatDialogRef<DataTableComponent>,private dialog: MatDialog) { } 
 
   ngOnInit(): void {
   }
@@ -49,5 +54,45 @@ export class ViewTaskComponent implements OnInit {
       a.style.display='none';
       this.OtherDatabool = false;
     }
+  }
+
+  OpenComments(){
+    const dialogConfig = new MatDialogConfig();
+        dialogConfig.disableClose = true;
+        dialogConfig.autoFocus = true;
+        dialogConfig.width = "350px";
+        dialogConfig.height = "390px";
+        dialogConfig.minWidth = "295px";
+        this.dialog.open(CommentsComponent,dialogConfig)
+  }
+
+  OpenWork(){
+    const dialogConfig = new MatDialogConfig();
+        dialogConfig.disableClose = true;
+        dialogConfig.autoFocus = true;
+        dialogConfig.width = "350px";
+        dialogConfig.height = "540px";
+        dialogConfig.minWidth = "295px";
+        this.dialog.open(WorkComponent,dialogConfig)
+  }
+
+  OpenUploadFile(){
+    const dialogConfig = new MatDialogConfig();
+        dialogConfig.disableClose = true;
+        dialogConfig.autoFocus = true;
+        dialogConfig.width = "350px";
+        dialogConfig.height = "460px";
+        dialogConfig.minWidth = "295px";
+        this.dialog.open(UploadFileComponent,dialogConfig)
+  }
+
+  OpenGallery(){
+    const dialogConfig = new MatDialogConfig();
+        dialogConfig.disableClose = true;
+        dialogConfig.autoFocus = true;
+        dialogConfig.width = "350px";
+        dialogConfig.height = "460px";
+        dialogConfig.minWidth = "295px";
+        this.dialog.open(GalleryComponent,dialogConfig)
   }
 }
