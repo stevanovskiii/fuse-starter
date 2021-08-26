@@ -7,13 +7,14 @@ fuse-vertical-navigation {
     flex-direction: column;
     flex: 1 0 auto;
     top: 0;
-    width: #{$fuse-vertical-navigation-width}px;
-    min-width: #{$fuse-vertical-navigation-width}px;
-    max-width: #{$fuse-vertical-navigation-width}px;
-    height: 100vh;
-    min-height: 100vh;
-    max-height: 100vh;
+    width: 100px;
+    min-width: 200px;
+    max-width: 200px;
+    height: 200px;/*  ovde treba da se meni za visina i sirina za levoto vertikalno meni no isto taka i vo html mozi vo vertical.component ili css-ot na vertical.component mislam*/
+    min-height: 200px;
+    max-height: 200px;
     z-index: 200;
+    border-radius:0px 0px 15px 0px;
 
     /* ----------------------------------------------------------------------------------------------------- */
     /* @ Navigation Drawer
