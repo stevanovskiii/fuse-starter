@@ -1,3 +1,44 @@
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+    
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+    </script>
+
+<style>
+    .collapsible {
+      background-color: #777;
+      color: white;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 15px;
+    }
+    
+    .active, .collapsible:hover {
+      background-color: #555;
+    }
+    
+    .content {
+      padding: 0 18px;
+      display: none;
+      overflow: hidden;
+      background-color: #f1f1f1;
+    }
+    </style>
 <div class="flex flex-col flex-auto min-w-0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 <div class="GlavnaKlasa">
@@ -7,12 +48,26 @@
             <mat-icon  class="icon-size-10" [svgIcon]="'heroicons_outline:plus-circle'" [color]="'primary'" ></mat-icon>
             <span>КРЕИРАЈ ЗАДАЧА</span>
         </button><br>
-        
-    </div>
     <div class="StatusBtn"><p class="SortiranjeDesno"><span class="MozenStatus" id="zelenoKopce"></span>Е во временска рамка</p><br>
         <p class="SortiranjeDesno"><span class="MozenStatus" id="zoltoKopce"></span>Се приближува до крајот</p><br>
         <p class="SortiranjeDesno"><span class="MozenStatus" id="crvenoKopce"></span>Го надминала крајниот датум</p><br><br>
             
+    </div>
+    <div>
+        <tr>
+            <th class="FilterZaPrebaruvanje">
+                <input st-search="" placeholder="Клиент" class="input-sm form-control ng-pristine ng-valid ng-empty ng-touched" type="search" ng-model="ctrlUserTask.customerNameSearchTerm">
+            </th>
+            <th class="FilterZaPrebaruvanje">
+                <input st-search="" placeholder="Име на проект" class="input-sm form-control ng-pristine ng-valid ng-empty ng-touched" type="search" ng-model="ctrlUserTask.customerNameSearchTerm">
+            </th>
+            <th class="FilterZaPrebaruvanje">
+                <input st-search="" placeholder="Категорија" class="input-sm form-control ng-pristine ng-valid ng-empty ng-touched" type="search" ng-model="ctrlUserTask.customerNameSearchTerm">
+            </th>
+            <th class="FilterZaPrebaruvanje">
+                
+            </th>
+        </tr>
     </div>
     <app-data-table class="Tabela"></app-data-table>
 </div>
