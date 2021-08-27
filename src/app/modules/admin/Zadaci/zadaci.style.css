@@ -37,6 +37,34 @@ height: 15px;
     margin-left: 10px;/* nekase i malce podesno */
 }
 
-.FilterZaPrebaruvanje{
-  margin-right: 5px;
+/*Still za filtrite za prebaruvanje*/
+#FiltriPrebaruvanje{
+    background-color: #1E293B;
+    color:#fff;
+    padding: 10px;
+    font-family: "Inter var", ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 5px;
+}
+#SkrieniKopcina{
+    display:none;
+}
+.GlavnaKlasaFiltriZaPrebaruvanje{
+    margin:5px;
+}
+.FilterTextBox {
+    margin-top: 3px;
+    margin-right: 10px;
+    width: 170px;
+  }
+  
+.TextBoxBt {
+    height: 20px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+  }
+#SelektiranjeStatus{
+    display: inline;
+    width: 170px;
 }

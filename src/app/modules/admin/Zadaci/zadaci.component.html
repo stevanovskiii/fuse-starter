@@ -1,44 +1,3 @@
-<script>
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-    
-    for (i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.display === "block") {
-          content.style.display = "none";
-        } else {
-          content.style.display = "block";
-        }
-      });
-    }
-    </script>
-
-<style>
-    .collapsible {
-      background-color: #777;
-      color: white;
-      cursor: pointer;
-      padding: 18px;
-      width: 100%;
-      border: none;
-      text-align: left;
-      outline: none;
-      font-size: 15px;
-    }
-    
-    .active, .collapsible:hover {
-      background-color: #555;
-    }
-    
-    .content {
-      padding: 0 18px;
-      display: none;
-      overflow: hidden;
-      background-color: #f1f1f1;
-    }
-    </style>
 <div class="flex flex-col flex-auto min-w-0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 <div class="GlavnaKlasa">
@@ -53,22 +12,36 @@
         <p class="SortiranjeDesno"><span class="MozenStatus" id="crvenoKopce"></span>Го надминала крајниот датум</p><br><br>
             
     </div>
-    <div>
-        <tr>
-            <th class="FilterZaPrebaruvanje">
-                <input st-search="" placeholder="Клиент" class="input-sm form-control ng-pristine ng-valid ng-empty ng-touched" type="search" ng-model="ctrlUserTask.customerNameSearchTerm">
-            </th>
-            <th class="FilterZaPrebaruvanje">
-                <input st-search="" placeholder="Име на проект" class="input-sm form-control ng-pristine ng-valid ng-empty ng-touched" type="search" ng-model="ctrlUserTask.customerNameSearchTerm">
-            </th>
-            <th class="FilterZaPrebaruvanje">
-                <input st-search="" placeholder="Категорија" class="input-sm form-control ng-pristine ng-valid ng-empty ng-touched" type="search" ng-model="ctrlUserTask.customerNameSearchTerm">
-            </th>
-            <th class="FilterZaPrebaruvanje">
-                
-            </th>
-        </tr>
+    <div class="GlavnaKlasaFiltriZaPrebaruvanje">
+      <div id="FiltriPrebaruvanje" >
+        <div (click)='OtvoriFiltri()' class='dropBtn'>
+            <span>
+                ФИЛТРИ ЗА ПРЕБАРУВАЊЕ
+            </span>
+            <mat-icon
+            class="icon-size-5"
+            id="ODmatIcon"
+            [svgIcon]="'heroicons_solid:chevron-down'"></mat-icon>
+        </div>
+        <div id="SkrieniKopcina">
+          <label class=" FilterTextBox mb-1">
+            <input placeholder="Клиент" class="input-sm form-control ng-pristine ng-valid ng-empty ng-touched" type="search" />
+          </label>  
+          <label class="FilterTextBox mb-1">
+            <input placeholder="Име на проект" class="input-sm form-control ng-pristine ng-valid ng-empty ng-touched" type="search" />
+          </label>  
+          <label class="FilterTextBox mb-1">
+            <input placeholder="Категорија" class="input-sm form-control ng-pristine ng-valid ng-empty ng-touched" type="search" />
+          </label>  
+          <!--po status -->
+          <select id="SelektiranjeStatus" class="form-select" aria-label="Default select example">
+            <option selected>По Статус</option>
+            <option value="1">Завршен</option>
+            <option value="2">Во чекање</option>
+            <option value="3">Се извршува</option>
+          </select>
+        </div>
     </div>
-    <app-data-table class="Tabela"></app-data-table>
 </div>
+<app-data-table class="Tabela"></app-data-table>
 </div>
