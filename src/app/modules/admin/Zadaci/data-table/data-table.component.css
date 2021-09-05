@@ -29,6 +29,7 @@ mat-paginator{/* sega e reseno za dolnot del od tabelata toa sto neli pri svajp 
 
 .KopcinaLeft{/* so ovie dolnive cetiri se praat kopcianta da bidat kaj sto treba (od button samo heighti left go menvas soodvetno drugite ne igraat uloga) */
   margin-bottom:30px;
+  width:70px
 }
 
 #gorno{
@@ -40,7 +41,7 @@ mat-paginator{/* sega e reseno za dolnot del od tabelata toa sto neli pri svajp 
 
 button{
   height:26px;
-  width:70px;
+  width:80px;
   text-align:center;
   position:absolute;
   left:0px;/* za ova treba da se razmisli kolku da bidi dali skros levo ili podesno */

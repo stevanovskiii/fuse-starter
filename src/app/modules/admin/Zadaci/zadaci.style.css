@@ -57,7 +57,7 @@ height: 15px;
 .FilterTextBox {
     margin-top: 5px;
     margin-right: 10px;
-    width: 170px;
+    width: 155px;
   }
   
 .TextBoxBt {
@@ -67,5 +67,12 @@ height: 15px;
   }
 #SelektiranjeStatus{
     display: inline;
-    width: 170px;
+    width: 155px;
 }
+
+#ODmatIcon{
+    position: relative;
+    top:4.5px;
+}
+
+

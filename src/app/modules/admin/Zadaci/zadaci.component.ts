@@ -26,7 +26,7 @@ export class ZadaciComponent
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
         dialogConfig.width = "400px";
-        dialogConfig.height = "670px";
+        dialogConfig.height = "690px";
         dialogConfig.minWidth = "295px";
         this.dialog.open(CreateTaskComponent,dialogConfig)
     }
