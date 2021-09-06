@@ -61,7 +61,7 @@ export class ViewTaskComponent implements OnInit {
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
         dialogConfig.width = "350px";
-        dialogConfig.height = "390px";
+        dialogConfig.height = "490px";
         dialogConfig.minWidth = "295px";
         this.dialog.open(CommentsComponent,dialogConfig)
   }
@@ -71,7 +71,7 @@ export class ViewTaskComponent implements OnInit {
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
         dialogConfig.width = "350px";
-        dialogConfig.height = "540px";
+        dialogConfig.height = "640px";
         dialogConfig.minWidth = "295px";
         this.dialog.open(WorkComponent,dialogConfig)
   }

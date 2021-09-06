@@ -2,27 +2,36 @@
     <div>
         <h3>Логирано време</h3>
     </div>
-    <div>
-        <label for="">Датум</label>
-        <input type="date" class='form-control'>
-    </div>
-    
-    <div>
-        <label for="">Време</label>
-        <input type="text" class='form-control' placeholder="Внеси часови">
-    </div>
-    
-    <div>
-        <label for="">Преостанато време</label>
-        <input type="text" class='form-control' placeholder="Внеси часови">
-    </div>
 
-    <div>
-        <label for="name">
-            Опис
-        </label>
-        <textarea id="Opis" type="text-box" class='form-control'></textarea>
-    </div>
+    <mat-tab-group>
+        <mat-tab label='Внеси'>
+            
+            <div>
+                <label for="">Датум</label>
+                <input type="date" class='form-control'>
+            </div>
+            
+            <div>
+                <label for="">Време</label>
+                <input type="text" class='form-control' placeholder="Внеси часови">
+            </div>
+            
+            <div>
+                <label for="">Преостанато време</label>
+                <input type="text" class='form-control' placeholder="Внеси часови">
+            </div>
+        
+            <div>
+                <label for="name">
+                    Опис
+                </label>
+                <textarea id="Opis" type="text-box" class='form-control'></textarea>
+            </div>
+        </mat-tab>
+        <mat-tab label='Прегледај'>
+            <p>Nekoj raboti itn... cekame API</p>
+        </mat-tab>
+    </mat-tab-group>
 
     <hr/>
     

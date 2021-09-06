@@ -65,14 +65,22 @@ height: 15px;
     flex: 0 0 200px;
     margin-left: 10px;
   }
+  
 #SelektiranjeStatus{
     display: inline;
     width: 155px;
+    margin-top: 5px;
+    margin-right: 10px;
 }
 
 #ODmatIcon{
     position: relative;
-    top:4.5px;
+    top:4.2px;
+    margin-bottom: 8px;
+}
+
+.dropBtn{
+    margin-left:7px;
 }
 
 

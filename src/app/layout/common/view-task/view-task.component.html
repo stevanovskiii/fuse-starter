@@ -1,6 +1,6 @@
 <script src="view-task.js"></script>
 <div class="KopceZaGasenje">
-    <button class="button" class="mat-focus-indicator mat-raised-button mat-button-base mat-accent" (click)="Close()">X</button>
+    <button id="iks" class="button" class="mat-focus-indicator mat-raised-button mat-button-base mat-accent" (click)="Close()">X</button>
 </div>
 <div id="mainDiv">
         <form>
@@ -13,15 +13,15 @@
                 <table>
                     <tr>
                         <td><button style="background-color:rgb(163, 106, 216)" class="mat-focus-indicator mat-raised-button mat-button-base mat-accent gorni6btn" type="file"><mat-icon style="color:white" class="icon-size-4" [svgIcon]="'heroicons_outline:photograph'" [color]="'primary'" ></mat-icon>Избери слика</button></td>
+                        <td><button style="background-color:rgb(235, 52, 38)" (click)="OpenComments()" class="mat-focus-indicator mat-raised-button mat-button-base mat-accent gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:annotation'" [color]="'primary'" ></mat-icon>Коментари</button></td>
+                    </tr>
+                    <tr>
                         <td><button style="background-color:rgb(152, 75, 224)" class="mat-focus-indicator mat-raised-button mat-button-base mat-accent gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:upload'" [color]="'primary'" ></mat-icon>Прикачи слика</button></td>
+                        <td><button style="background-color:blue" (click)="OpenWork()" class="mat-focus-indicator mat-raised-button mat-button-base mat-accent gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:clock'" [color]="'primary'" ></mat-icon>Работа</button></td>
                     </tr>
                     <tr>
                         <td><button style="background-color:blueviolet" (click)="OpenGallery()"class="mat-focus-indicator mat-raised-button mat-button-base mat-accent gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:duplicate'" [color]="'primary'" ></mat-icon>Види слики</button></td>
-                        <td><button style="background-color:rgb(211, 81, 81)" (click)="OpenComments()" class="mat-focus-indicator mat-raised-button mat-button-base mat-accent gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:annotation'" [color]="'primary'" ></mat-icon>Коментари</button></td>
-                    </tr>
-                    <tr>
-                        <td><button style="background-color:blue" (click)="OpenWork()" class="mat-focus-indicator mat-raised-button mat-button-base mat-accent gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:clock'" [color]="'primary'" ></mat-icon>Работа</button></td>
-                        <td><button style="background-color:blueviolet" (click)="OpenUploadFile()" class="mat-focus-indicator mat-raised-button mat-button-base mat-accent gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:paper-clip'" [color]="'primary'" ></mat-icon>Прикачи фајл</button></td>
+                        <td><button style="background-color:green" (click)="OpenUploadFile()" class="mat-focus-indicator mat-raised-button mat-button-base mat-accent gorni6btn" type="submit"><mat-icon class="icon-size-4" [svgIcon]="'heroicons_outline:paper-clip'" [color]="'primary'" ></mat-icon>Прикачи фајл</button></td>
                     </tr>
                 </table>  
     

@@ -21,6 +21,7 @@ import { CommentsComponent } from './common/comments/comments.component';
 import { WorkComponent } from './common/work/work.component';
 import { UploadFileComponent } from './common/upload-file/upload-file.component';
 import { GalleryComponent } from './common/gallery/gallery.component';
+import { MatTabsModule } from '@angular/material/tabs';
 
 const layoutModules = [
     // Empty
@@ -38,7 +39,8 @@ const layoutModules = [
     CompactLayoutModule,
     DenseLayoutModule,
     FuturisticLayoutModule,
-    ThinLayoutModule
+    ThinLayoutModule,
+    MatTabsModule
 ];
 
 @NgModule({
