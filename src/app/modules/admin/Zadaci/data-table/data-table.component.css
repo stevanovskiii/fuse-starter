@@ -33,10 +33,15 @@ mat-paginator{/* sega e reseno za dolnot del od tabelata toa sto neli pri svajp 
 }
 
 #gorno{
-  margin-bottom:4px;
+  margin-bottom:4.5px;
 }
 
-#dolno{/* neka stoj ova ako */
+#dolno{
+  margin-bottom:10px;
+}
+
+#zapocni{/* neka stoj ova ako */
+  
 }
 
 button{
