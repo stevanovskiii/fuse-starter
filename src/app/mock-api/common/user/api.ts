@@ -41,7 +41,7 @@ export class UserMockApi
         this._fuseMockApiService
             .onPatch('api/common/user')
             .reply(({request}) => {
-
+                
                 // Get the user mock-api
                 const user = cloneDeep(request.body.user);
 

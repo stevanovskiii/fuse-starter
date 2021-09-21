@@ -78,7 +78,7 @@ export class AuthService
 
         return this._httpClient.get(getString).pipe(
             switchMap((response: any) => {
-
+                
                 // Store the access token in the local storage
                 //this.accessToken = response.accessToken;
                 if(response.Status==1){
