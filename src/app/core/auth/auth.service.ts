@@ -84,16 +84,14 @@ export class AuthService
                 if(response.Status==1){
                     // Set the authenticated flag to true
                     this._authenticated = true;
+                    return of(response);
                 }
-                else if (response.Status==0){
-                    this._authenticated = false;
-                }
-                
+    
                 // Store the user on the user service
                 //this._userService.user = response.user;
 
                 // Return a new observable with the response
-                return of(response);
+                return (response);
             })
         );
     }

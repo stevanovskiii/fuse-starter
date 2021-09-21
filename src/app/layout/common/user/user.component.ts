@@ -46,6 +46,8 @@ export class UserComponent implements OnInit, OnDestroy
     /**
      * On init
      */
+    UserName:string
+
     ngOnInit(): void
     {
         // Subscribe to user changes
@@ -57,6 +59,8 @@ export class UserComponent implements OnInit, OnDestroy
                 // Mark for check
                 this._changeDetectorRef.markForCheck();
             });
+
+            this.UserName= this._userService.getMessage()
     }
 
     /**

@@ -9,6 +9,16 @@ import { User } from 'app/core/user/user.types';
 })
 export class UserService
 {
+    //
+        userName:string;
+        setMessage(data){
+            this.userName=data
+        }
+        getMessage(){
+            return this.userName;
+        }
+    //
+
     private _user: ReplaySubject<User> = new ReplaySubject<User>(1);
 
     /**

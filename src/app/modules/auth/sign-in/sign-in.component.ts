@@ -6,6 +6,7 @@ import { FuseAlertType } from '@fuse/components/alert';
 import { AuthService } from 'app/core/auth/auth.service';
 import { HttpClient, HttpClientModule, HttpResponse } from '@angular/common/http';
 import { stringify } from 'crypto-js/enc-base64';
+import { UserService } from 'app/core/user/user.service';
 
 @Component({
     selector     : 'auth-sign-in',
@@ -24,6 +25,8 @@ export class AuthSignInComponent implements OnInit
     signInForm: FormGroup;
     showAlert: boolean = false;
 
+
+
     /**
      * Constructor
      */
@@ -32,10 +35,13 @@ export class AuthSignInComponent implements OnInit
         private _authService: AuthService,
         private _formBuilder: FormBuilder,
         private _router: Router,
-        private httpClient:HttpClient
+        private httpClient:HttpClient,
+        private share:UserService
     )
     {
     }
+
+    UserName:string
 
     public static API_ENDPOINT='https://www.estitask.com/#/';
 
@@ -68,6 +74,8 @@ export class AuthSignInComponent implements OnInit
             password  : ['', Validators.required],
             rememberMe: ['']
         });
+
+        this.share.setMessage(this.UserName)
     }
 
     // -----------------------------------------------------------------------------------------------------
@@ -94,7 +102,7 @@ export class AuthSignInComponent implements OnInit
         // Sign in
         this._authService.signIn(this.signInForm.value)
             .subscribe(
-                () => {
+                (response) => {
 
                     // Set the redirect url.
                     // The '/signed-in-redirect' is a dummy url to catch the request and redirect the user
@@ -104,7 +112,8 @@ export class AuthSignInComponent implements OnInit
 
                     // Navigate to the redirect url
                     this._router.navigateByUrl(redirectURL);
-                    console.log("dwadawdwa logirano");
+                    this.UserName=response.User.FullName
+                    this.share.setMessage(this.UserName)
                 },
                 (response) => {
 
