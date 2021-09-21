@@ -19,8 +19,8 @@ export const defaultNavigation: FuseNavigationItem[] = [
         link : '/home'
     },
     {
-        id   : 'projects',
-        title: 'Проекти',
+        id   : 'tasks',
+        title: 'Задачи',
         type : 'basic',
         icon : 'heroicons_outline:clipboard-check',
         link : '/zadaci'
@@ -33,7 +33,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
         link : '/settings'
     },
     {
-        id   : 'hdome',
+        id   : 'reports',
         title: 'Извештаи',
         type : 'basic',
         icon : 'heroicons_outline:document-report',

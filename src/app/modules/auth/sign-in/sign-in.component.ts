@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators, } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { fuseAnimations } from '@fuse/animations';
 import { FuseAlertType } from '@fuse/components/alert';
 import { AuthService } from 'app/core/auth/auth.service';
+import { HttpClient, HttpClientModule, HttpResponse } from '@angular/common/http';
+import { stringify } from 'crypto-js/enc-base64';
 
 @Component({
     selector     : 'auth-sign-in',
@@ -29,10 +31,27 @@ export class AuthSignInComponent implements OnInit
         private _activatedRoute: ActivatedRoute,
         private _authService: AuthService,
         private _formBuilder: FormBuilder,
-        private _router: Router
+        private _router: Router,
+        private httpClient:HttpClient
     )
     {
     }
+
+    public static API_ENDPOINT='https://www.estitask.com/#/';
+
+    /*getProfile(){
+        var username=this.signInForm.value.email
+        var password=this.signInForm.value.password
+        this.httpClient.get<any>( 'https://estitask.com/api/api/user/LoginUser?username='+username+'&password='+password).subscribe(
+            response => {
+                console.log(response.Status)
+
+                this._router.navigate(['/home'],);
+            }
+        );
+        
+        
+    }*/
 
     // -----------------------------------------------------------------------------------------------------
     // @ Lifecycle hooks
@@ -45,8 +64,8 @@ export class AuthSignInComponent implements OnInit
     {
         // Create the form
         this.signInForm = this._formBuilder.group({
-            email     : ['hughes.brian@company.com', [Validators.required, Validators.email]],
-            password  : ['admin', Validators.required],
+            email     : ['', [Validators.required, Validators.email]],
+            password  : ['', Validators.required],
             rememberMe: ['']
         });
     }
@@ -85,10 +104,11 @@ export class AuthSignInComponent implements OnInit
 
                     // Navigate to the redirect url
                     this._router.navigateByUrl(redirectURL);
-
+                    console.log("dwadawdwa logirano");
                 },
                 (response) => {
 
+                    console.log("dwadawdwa nelogirano");
                     // Re-enable the form
                     this.signInForm.enable();
 

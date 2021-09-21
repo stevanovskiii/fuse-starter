@@ -74,17 +74,23 @@ export class AuthService
             return throwError('User is already logged in.');
         }
 
-        return this._httpClient.post('api/auth/sign-in', credentials).pipe(
+        var getString = 'https://estitask.com/api/api/user/LoginUser?username='+credentials.email+'&password='+credentials.password
+
+        return this._httpClient.get(getString).pipe(
             switchMap((response: any) => {
 
                 // Store the access token in the local storage
-                this.accessToken = response.accessToken;
-
-                // Set the authenticated flag to true
-                this._authenticated = true;
-
+                //this.accessToken = response.accessToken;
+                if(response.Status==1){
+                    // Set the authenticated flag to true
+                    this._authenticated = true;
+                }
+                else if (response.Status==0){
+                    this._authenticated = false;
+                }
+                
                 // Store the user on the user service
-                this._userService.user = response.user;
+                //this._userService.user = response.user;
 
                 // Return a new observable with the response
                 return of(response);
