@@ -5,7 +5,6 @@ import { catchError, switchMap } from 'rxjs/operators';
 import { AuthUtils } from 'app/core/auth/auth.utils';
 import { UserService } from 'app/core/user/user.service';
 import { stringify } from 'crypto-js/enc-base64';
-import { SignInService } from 'app/modules/auth/sign-in/sign-in.service';
 
 @Injectable()
 export class AuthService
