@@ -5,6 +5,8 @@ import { catchError, switchMap } from 'rxjs/operators';
 import { AuthUtils } from 'app/core/auth/auth.utils';
 import { UserService } from 'app/core/user/user.service';
 import { stringify } from 'crypto-js/enc-base64';
+import { messages } from 'app/mock-api/apps/chat/data';
+import { DataTableComponent } from 'app/modules/admin/Zadaci/data-table/data-table.component';
 
 @Injectable()
 export class AuthService
@@ -62,6 +64,13 @@ export class AuthService
         return this._httpClient.post('api/auth/reset-password', password);
     }
 
+    data:any
+    setMessage(data){
+        this.data=data;
+    }
+    getMessage(){
+        return this.data;
+    }
     /**
      * Sign in
      *
@@ -83,9 +92,45 @@ export class AuthService
                 //this.accessToken = response.accessToken;
                 if(response.Status==1){
                     fetch('https://estitask.com/api/api/projecttask/FillStatus?languageId=1')
-                    .then(res=>res)
-                    fetch('https://estitask.com/api/api/project/FillProjectsForUser?isDeleted=false&userId=5092')
-                    .then(res=>res)
+                    .then(res=>{
+                        return res.json();
+                    })
+                    .then(data=> {
+                        //console.log(data);
+                    })
+
+                    fetch('https://estitask.com/api/api/project/FillProjectsForUser?isDeleted=false&userId='+response.User.Id)
+                    .then(res=>{
+                        return res.json();
+                    })
+                    .then(data=> {
+                        //console.log(data);
+                    })
+                    
+                    if(response.User.RoleId==4){
+                        fetch('https://estitask.com/api/api/projecttask/GetProjectTasksForUser?languageId=1&isDeleted=false&userId='+response.User.Id)
+                        .then(res=>{
+                            return res.json();
+                        })
+                        .then(data=> {
+                            console.log(data);
+                            console.log('JAS SUM OD AuthService USER E');
+                            this.setMessage(data)
+
+                        })
+                    }
+                    else if(response.User.RoleId==5){
+                        fetch('https://estitask.com/api/api/project/GetProjects?companyId=4&isDeleted=false&completed=0')
+                        .then(res=>{
+                            return res.json();
+                        })
+                        .then(data=> {
+                            console.log(data);
+                            console.log('JAS SUM OD AuthService ADMIN E');
+                            this.setMessage(data)
+                        })
+                    }
+
                     // Set the authenticated flag to true
                     this._authenticated = true;
                     return of(response);

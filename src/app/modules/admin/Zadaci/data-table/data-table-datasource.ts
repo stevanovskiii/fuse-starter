@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
+import { AuthService } from 'app/core/auth/auth.service';
 
 // TODO: Replace this with your own data model type
 export interface DataTableItem {
@@ -32,19 +33,36 @@ const EXAMPLE_DATA: DataTableItem[] = [
   {Client: '/', ProjectName: 'redizajn', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
 ]
 
+const EXAMPLE_DATA2: DataTableItem[] = [
+  {Client: '/', ProjectName: '/', TaskName: '/', Starts: '/', Ends: '/', Categories: '/', Status: '/', Priority: '/',},
+]
+
 /**
  * Data source for the DataTable view. This class should
  * encapsulate all logic for fetching and manipulating the displayed data
  * (including sorting, pagination, and filtering).
  */
 export class DataTableDataSource extends DataSource<DataTableItem> {
-  data: DataTableItem[] = EXAMPLE_DATA;
+  data: DataTableItem[] = EXAMPLE_DATA2;
   paginator: MatPaginator | undefined;
   sort: MatSort | undefined;
 
-  constructor() {
+  constructor(responseData:any) {
     super();
+    this.responseData=responseData
+    this.responseRows=responseData.ProjectTasks
+
+    for(var i=0;i<this.responseRows.length;i++){
+      this.data[i]={Client: this.responseRows[i].Customer, ProjectName: this.responseRows[i].ProjectName, TaskName: this.responseRows[i].Name, Starts: this.responseRows[i].StartDate, Ends: this.responseRows[i].EndDate, Categories: this.responseRows[i].TaskCategory, Status: this.responseRows[i].Status, Priority: this.responseRows[i].Priority};
+    }
+    console.log('JAS SUM OD DATATABLE SOURCE')
+    console.log(this.responseRows)
+    console.log(this.data)
+    console.log('JAS SUM OD DATATABLE SOURCE')
   }
+
+  responseData:any
+  responseRows:any
 
   /**
    * Connect this data source to the table. The table will only update when

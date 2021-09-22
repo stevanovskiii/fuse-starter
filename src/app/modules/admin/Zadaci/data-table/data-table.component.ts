@@ -6,6 +6,7 @@ import { parseString } from 'rrule/dist/esm/src/parsestring';/* ova e za funkcij
 import { DataTableDataSource, DataTableItem } from './data-table-datasource';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ViewTaskComponent } from 'app/layout/common/view-task/view-task.component';
+import { AuthService } from 'app/core/auth/auth.service';
 
 @Component({
   selector: 'app-data-table',/*sleketorov e e bas ko so si mislev to est ne e data-table*/
@@ -21,9 +22,14 @@ export class DataTableComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['buttons','id', 'name', 'task', 'Почнува',	'Завршува',	'Категории',	'Статус',	'Приоритет'];
 
-  constructor(private dialog: MatDialog) {
-    this.dataSource = new DataTableDataSource();
+  constructor(private dialog: MatDialog, private _authService:AuthService) {
+    console.log('JAS SUM OD DATATABLE COMPONENT TS')
+    console.log(this._authService.getMessage())
+    console.log('JAS SUM OD DATATABLE COMPONENT TS')
+    this.dataSource = new DataTableDataSource(this._authService.getMessage());
   }
+
+  data:any
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
