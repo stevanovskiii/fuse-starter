@@ -4,6 +4,8 @@ import { Observable, of, throwError } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
 import { AuthUtils } from 'app/core/auth/auth.utils';
 import { UserService } from 'app/core/user/user.service';
+import { stringify } from 'crypto-js/enc-base64';
+import { SignInService } from 'app/modules/auth/sign-in/sign-in.service';
 
 @Injectable()
 export class AuthService
@@ -66,7 +68,7 @@ export class AuthService
      *
      * @param credentials
      */
-    signIn(credentials: { email: string; password: string }): Observable<any>
+    signIn(credentials: { email: string; password: string; }): Observable<any>
     {
         // Throw error, if the user is already logged in
         if ( this._authenticated )
@@ -75,13 +77,16 @@ export class AuthService
         }
 
         var getString = 'https://estitask.com/api/api/user/LoginUser?username='+credentials.email+'&password='+credentials.password
-
+        var getId = {}
         return this._httpClient.get(getString).pipe(
             switchMap((response: any) => {
-                
                 // Store the access token in the local storage
                 //this.accessToken = response.accessToken;
                 if(response.Status==1){
+                    fetch('https://estitask.com/api/api/projecttask/FillStatus?languageId=1')
+                    .then(res=>res)
+                    fetch('https://estitask.com/api/api/project/FillProjectsForUser?isDeleted=false&userId=5092')
+                    .then(res=>res)
                     // Set the authenticated flag to true
                     this._authenticated = true;
                     return of(response);
