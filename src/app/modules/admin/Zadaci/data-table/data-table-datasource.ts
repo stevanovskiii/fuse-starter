@@ -33,7 +33,7 @@ const EXAMPLE_DATA: DataTableItem[] = [
   {Client: '/', ProjectName: 'redizajn', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
 ]
 
-const EXAMPLE_DATA2: DataTableItem[] = [
+const EXAMPLE_DATA2: DataTableItem[] =  [
   {Client: '/', ProjectName: '/', TaskName: '/', Starts: '/', Ends: '/', Categories: '/', Status: '/', Priority: '/',},
 ]
 

@@ -37,6 +37,19 @@ export class DataTableComponent implements AfterViewInit {
     this.table.dataSource = this.dataSource;
   }
 
+  OtvoriFiltriBool : boolean = false;
+    OtvoriFiltri(){
+        if(this.OtvoriFiltriBool==false){ 
+          let a = window.document.getElementById('SkrieniKopcina')!;
+          a.style.display='block';
+          this.OtvoriFiltriBool = true;
+        }
+        else if (this.OtvoriFiltriBool==true){ 
+          let a = window.document.getElementById('SkrieniKopcina')!;
+          a.style.display='none';
+          this.OtvoriFiltriBool = false;
+        }
+    }
   View(){
       const dialogConfig = new MatDialogConfig();
         dialogConfig.disableClose = true;

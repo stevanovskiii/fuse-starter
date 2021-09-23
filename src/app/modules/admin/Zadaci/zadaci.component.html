@@ -12,36 +12,7 @@
         <p class="SortiranjeDesno"><span class="MozenStatus" id="crvenoKopce"></span>Го надминала крајниот датум</p><br><br>
             
     </div>
-    <div class="GlavnaKlasaFiltriZaPrebaruvanje">
-      <div id="FiltriPrebaruvanje" >
-        <div (click)='OtvoriFiltri()' class='dropBtn'>
-            <span>
-                ФИЛТРИ ЗА ПРЕБАРУВАЊЕ
-            </span>
-            <mat-icon
-            class="icon-size-5"
-            id="ODmatIcon"
-            [svgIcon]="'heroicons_solid:chevron-down'" style="color:white"></mat-icon>
-        </div>
-        <div id="SkrieniKopcina">
-          <label class=" FilterTextBox mb-1">
-            <input placeholder="Клиент" class="input-sm form-control ng-pristine ng-valid ng-empty ng-touched" type="search" />
-          </label>  
-          <label class="FilterTextBox mb-1">
-            <input placeholder="Име на проект" class="input-sm form-control ng-pristine ng-valid ng-empty ng-touched" type="search" />
-          </label>  
-          <label class="FilterTextBox mb-1">
-            <input placeholder="Категорија" class="input-sm form-control ng-pristine ng-valid ng-empty ng-touched" type="search" />
-          </label>  
-          <!--po status -->
-          <select id="SelektiranjeStatus" class="form-select" aria-label="Default select example">
-            <option selected>По Статус</option>
-            <option value="1">Завршен</option>
-            <option value="2">Во чекање</option>
-            <option value="3">Се извршува</option>
-          </select>
-        </div>
-    </div>
+    
 </div>
 <app-data-table class="Tabela"></app-data-table>
 </div>

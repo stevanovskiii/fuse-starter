@@ -12,6 +12,7 @@ import { DataTableComponent } from 'app/modules/admin/Zadaci/data-table/data-tab
 export class AuthService
 {
     private _authenticated: boolean = false;
+    router: any;
 
     /**
      * Constructor
@@ -83,7 +84,7 @@ export class AuthService
         {
             return throwError('User is already logged in.');
         }
-
+        
         var getString = 'https://estitask.com/api/api/user/LoginUser?username='+credentials.email+'&password='+credentials.password
         var getId = {}
         return this._httpClient.get(getString).pipe(
@@ -91,23 +92,14 @@ export class AuthService
                 // Store the access token in the local storage
                 //this.accessToken = response.accessToken;
                 if(response.Status==1){
-                    fetch('https://estitask.com/api/api/projecttask/FillStatus?languageId=1')
+                    fetch('https://estitask.com/api/api/projecttask/FillStatus?languageId='+response.User.LanguageId)
                     .then(res=>{
                         return res.json();
                     })
                     .then(data=> {
                         //console.log(data);
-                    })
-
-                    fetch('https://estitask.com/api/api/project/FillProjectsForUser?isDeleted=false&userId='+response.User.Id)
-                    .then(res=>{
-                        return res.json();
-                    })
-                    .then(data=> {
-                        //console.log(data);
-                    })
-                    
-                    if(response.User.RoleId==4){
+                    })              
+                    if(response.User.RoleId==4){ 
                         fetch('https://estitask.com/api/api/projecttask/GetProjectTasksForUser?languageId=1&isDeleted=false&userId='+response.User.Id)
                         .then(res=>{
                             return res.json();
@@ -118,7 +110,9 @@ export class AuthService
                             this.setMessage(data)
 
                         })
+                    
                     }
+                    
                     else if(response.User.RoleId==5){
                         fetch('https://estitask.com/api/api/project/GetProjects?companyId=4&isDeleted=false&completed=0')
                         .then(res=>{
@@ -130,7 +124,13 @@ export class AuthService
                             this.setMessage(data)
                         })
                     }
-
+                    fetch('https://estitask.com/api/api/project/FillProjectsForUser?isDeleted=false&userId='+response.User.Id)
+                    .then(res=>{
+                        return res.json();
+                    })
+                    .then(data=> {
+                        //console.log(data);
+                    })
                     // Set the authenticated flag to true
                     this._authenticated = true;
                     return of(response);
