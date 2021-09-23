@@ -72,6 +72,16 @@ export class AuthService
     getMessage(){
         return this.data;
     }
+
+    podatociuser:any
+    setPodatociUser(podatociuser){
+        this.podatociuser=podatociuser;
+    }
+    getPodatociUser(){
+        return this.podatociuser;
+    }
+
+
     /**
      * Sign in
      *
@@ -86,11 +96,12 @@ export class AuthService
         }
         
         var getString = 'https://estitask.com/api/api/user/LoginUser?username='+credentials.email+'&password='+credentials.password
-        var getId = {}
+        
         return this._httpClient.get(getString).pipe(
             switchMap((response: any) => {
                 // Store the access token in the local storage
                 //this.accessToken = response.accessToken;
+                this.setPodatociUser(response)
                 if(response.Status==1){
                     fetch('https://estitask.com/api/api/projecttask/FillStatus?languageId='+response.User.LanguageId)
                     .then(res=>{
@@ -121,7 +132,7 @@ export class AuthService
                         .then(data=> {
                             console.log(data);
                             console.log('JAS SUM OD AuthService ADMIN E');
-                            this.setMessage(data)
+                            
                         })
                     }
                     fetch('https://estitask.com/api/api/project/FillProjectsForUser?isDeleted=false&userId='+response.User.Id)

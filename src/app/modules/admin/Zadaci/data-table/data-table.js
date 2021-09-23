@@ -7,3 +7,4 @@ $(window).scroll(function(){
             $('#button').css('position','static');
         }    
 });/**Proba na kopcinata so js no zasega nema funkcija */
+

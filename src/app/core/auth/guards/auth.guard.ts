@@ -3,6 +3,7 @@ import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, CanLoad, Route, 
 import { Observable, of } from 'rxjs';
 import { AuthService } from 'app/core/auth/auth.service';
 import { switchMap } from 'rxjs/operators';
+import { query } from '@angular/animations';
 
 @Injectable({
     providedIn: 'root'
@@ -31,7 +32,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad
      */
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean
     {
-        const redirectUrl = state.url === '/sign-out' ? '/' : state.url;
+        const redirectUrl = state.url === '/sing-out' ? '/' : state.url;
         return this._check(redirectUrl);
     }
 
@@ -43,7 +44,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad
      */
     canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree
     {
-        const redirectUrl = state.url === '/sign-out' ? '/' : state.url;
+        const redirectUrl = state.url === '/sing-out' ? '/' : state.url;
         return this._check(redirectUrl);
     }
 
@@ -80,11 +81,14 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad
                            {
                                // Redirect to the sign-in page
                                this._router.navigate(['sign-in'], {queryParams: {redirectURL}});
+                               
 
                                // Prevent the access
+                               console.log('Ne avtenticiran')
                                return of(false);
                            }
-
+                           
+                            console.log('Avtenticiran')
                            // Allow the access
                            return of(true);
                        })
