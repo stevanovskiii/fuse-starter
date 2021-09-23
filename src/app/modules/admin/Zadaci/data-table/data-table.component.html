@@ -1,3 +1,4 @@
+<script data-require="angular.js@1.2.x" src="https://code.angularjs.org/1.2.22/angular.js" data-semver="1.2.22"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 <div class="mat-elevation-z8 data-table">
   <div class="GlavnaKlasaFiltriZaPrebaruvanje">
@@ -24,7 +25,7 @@
         <!--po status -->
         <select id="SelektiranjeStatus" class="form-select" aria-label="Default select example">
           <option selected>По Статус</option>
-          <option value="1">Завршен</option>
+          <option >Завршен</option>
           <option value="2">Во чекање</option>
           <option value="3">Се извршува</option>
         </select>
@@ -41,7 +42,7 @@
             <button (click)="View()" (click)='kopcina()' class="py-0.5 px-3 rounded-full text-sm font-semibold text-blue-800 bg-blue-300 dark:text-blue-50 dark:bg-blue-500 ng-star-inserted"><span style="font-size:11px">Преглед</span></button><br>
           </div>
           <div id="dolno">
-            <button class="py-0.5 px-3 rounded-full text-sm font-semibold text-pink-800 bg-pink-300 dark:text-pink-50 dark:bg-pink-500 ng-star-inserted kopce">Крај</button>
+            <button (click)="Kraj()" class="py-0.5 px-3 rounded-full text-sm font-semibold text-pink-800 bg-pink-300 dark:text-pink-50 dark:bg-pink-500 ng-star-inserted kopce">Крај</button>
           </div>
           <br>
           <div class="zapocni">
