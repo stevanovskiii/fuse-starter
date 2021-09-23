@@ -13,13 +13,13 @@ import { Subject } from 'rxjs';
 })
 export class ZadaciComponent
 {
+  searchText:string;
 
     /**
      * Constructor
      */
     constructor(private dialog: MatDialog) 
     {
-        
     }
     onCreate(){
         const dialogConfig = new MatDialogConfig();
@@ -30,19 +30,7 @@ export class ZadaciComponent
         dialogConfig.minWidth = "295px";
         this.dialog.open(CreateTaskComponent,dialogConfig)
     }
-    OtvoriFiltriBool : boolean = false;
-    OtvoriFiltri(){
-        if(this.OtvoriFiltriBool==false){ 
-          let a = window.document.getElementById('SkrieniKopcina')!;
-          a.style.display='block';
-          this.OtvoriFiltriBool = true;
-        }
-        else if (this.OtvoriFiltriBool==true){ 
-          let a = window.document.getElementById('SkrieniKopcina')!;
-          a.style.display='none';
-          this.OtvoriFiltriBool = false;
-        }
-    }
+    
     selectedProject: string = 'ACME Corp. Backend App';
     private _unsubscribeAll: Subject<any> = new Subject<any>();
     

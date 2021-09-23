@@ -18,18 +18,38 @@ export class DataTableComponent implements AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<DataTableItem>;
   dataSource: DataTableDataSource;
-
+  response: any
+  responseproekt: any
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['buttons','id', 'name', 'task', 'Почнува',	'Завршува',	'Категории',	'Статус',	'Приоритет'];
-
-  constructor(private dialog: MatDialog, private _authService:AuthService) {
+  constructor(private dialog: MatDialog, private _authService:AuthService ) {
     console.log('JAS SUM OD DATATABLE COMPONENT TS')
     console.log(this._authService.getMessage())
     console.log('JAS SUM OD DATATABLE COMPONENT TS')
     this.dataSource = new DataTableDataSource(this._authService.getMessage());
+    this.response=this._authService.getPodatociUser()
+    this.responseproekt=this._authService.getMessage()
+    console.log(this.responseproekt)
+    console.log('Nadmene e responsot')
   }
+  
+  Kraj(){ 
+    console.log('Brisenje proekt')
 
-  data:any
+    fetch('https://estitask.com/api/api/projecttask/FinishProjectTask?projectId='+this.responseproekt.ProjectTasks[2].ProjectId+'&projectTaskId='+this.responseproekt.ProjectTasks[2].Id+'&finishedUserEmail='+this.response.User.Email)
+                    .then(res=>console.log(res))
+    fetch('https://estitask.com/api/api/projecttask/GetProjectTasksForUser?languageId=1&isDeleted=false&userId='+this.response.User.Id)
+                    .then(res=>
+                    this.dataSource = new DataTableDataSource(res)
+                    )
+    fetch('https://estitask.com/api/api/project/FillProjectsForUser?isDeleted=false&userId='+this.response.User.Id)
+                    .then(res=>{
+                      return res.json();
+                        
+                    })
+                    
+                    
+  }
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
@@ -37,6 +57,19 @@ export class DataTableComponent implements AfterViewInit {
     this.table.dataSource = this.dataSource;
   }
 
+  OtvoriFiltriBool : boolean = false;
+    OtvoriFiltri(){
+        if(this.OtvoriFiltriBool==false){ 
+          let a = window.document.getElementById('SkrieniKopcina')!;
+          a.style.display='block';
+          this.OtvoriFiltriBool = true;
+        }
+        else if (this.OtvoriFiltriBool==true){ 
+          let a = window.document.getElementById('SkrieniKopcina')!;
+          a.style.display='none';
+          this.OtvoriFiltriBool = false;
+        }
+    }
   View(){
       const dialogConfig = new MatDialogConfig();
         dialogConfig.disableClose = true;

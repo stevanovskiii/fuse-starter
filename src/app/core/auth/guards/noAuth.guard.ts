@@ -31,7 +31,7 @@ export class NoAuthGuard implements CanActivate, CanActivateChild, CanLoad
      */
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean
     {
-        return this._check();
+        return this._check('');
     }
 
     /**
@@ -42,7 +42,7 @@ export class NoAuthGuard implements CanActivate, CanActivateChild, CanLoad
      */
     canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree
     {
-        return this._check();
+        return this._check('');
     }
 
     /**
@@ -53,7 +53,7 @@ export class NoAuthGuard implements CanActivate, CanActivateChild, CanLoad
      */
     canLoad(route: Route, segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean
     {
-        return this._check();
+        return this._check('');
     }
 
     // -----------------------------------------------------------------------------------------------------
@@ -62,10 +62,10 @@ export class NoAuthGuard implements CanActivate, CanActivateChild, CanLoad
 
     /**
      * Check the authenticated status
-     *
+     * @param redirectURL
      * @private
      */
-    private _check(): Observable<boolean>
+    private _check(redirectURL: string): Observable<boolean>
     {
         // Check the authentication status
         return this._authService.check()
@@ -76,7 +76,7 @@ export class NoAuthGuard implements CanActivate, CanActivateChild, CanLoad
                            if ( authenticated )
                            {
                                // Redirect to the root
-                               this._router.navigate(['']);
+                               this._router.navigate([''], {queryParams: {redirectURL}});
 
                                // Prevent the access
                                return of(false);

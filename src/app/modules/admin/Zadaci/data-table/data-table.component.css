@@ -40,9 +40,7 @@ mat-paginator{/* sega e reseno za dolnot del od tabelata toa sto neli pri svajp 
   margin-bottom:14px;
 }
 
-#zapocni{/* neka stoj ova ako */
-  
-}
+
 
 button{
   height:28px;
@@ -50,4 +48,49 @@ button{
   text-align:center;
   position:absolute;
   left:0px;/* za ova treba da se razmisli kolku da bidi dali skros levo ili podesno */
+}
+/*Still za filtrite za prebaruvanje*/
+#FiltriPrebaruvanje{
+  background-color: #1E293B;
+  color:#fff;
+  padding: 10px;
+  font-family: "Inter var", ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 5px;
+}
+#SkrieniKopcina{
+  display:none;
+  text-align: center;
+}
+.GlavnaKlasaFiltriZaPrebaruvanje{
+  margin:5px;
+}
+.FilterTextBox {
+  margin-top: 5px;
+  margin-right: 10px;
+  width: 155px;
+}
+
+.TextBoxBt {
+  height: 20px;
+  flex: 0 0 200px;
+  margin-left: 10px;
+}
+
+#SelektiranjeStatus{
+  display: inline;
+  width: 155px;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+#ODmatIcon{
+  position: relative;
+  top:4.2px;
+  margin-bottom: 8px;
+}
+
+.dropBtn{
+  margin-left:7px;
 }
