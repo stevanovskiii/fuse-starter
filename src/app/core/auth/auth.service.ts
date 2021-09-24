@@ -132,8 +132,8 @@ export class AuthService
                             return res.json();
                         })
                         .then(data=> {
-                            console.log(data);
-                            console.log('JAS SUM OD AuthService USER E');
+                            //console.log(data);
+                            //console.log('JAS SUM OD AuthService USER E');
                             this.setMessage(data)
 
                         })
@@ -146,8 +146,8 @@ export class AuthService
                             return res.json();
                         })
                         .then(data=> {
-                            console.log(data);
-                            console.log('JAS SUM OD AuthService ADMIN E');
+                            //console.log(data);
+                            //console.log('JAS SUM OD AuthService ADMIN E');
                             
                         })
                     }

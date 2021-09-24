@@ -23,25 +23,32 @@ export class DataTableComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['buttons','id', 'name', 'task', 'Почнува',	'Завршува',	'Категории',	'Статус',	'Приоритет'];
   constructor(private dialog: MatDialog, private _authService:AuthService ) {
-    console.log('JAS SUM OD DATATABLE COMPONENT TS')
-    console.log(this._authService.getMessage())
-    console.log('JAS SUM OD DATATABLE COMPONENT TS')
+    //console.log('JAS SUM OD DATATABLE COMPONENT TS')
+    //console.log(this._authService.getMessage())
+    //console.log('JAS SUM OD DATATABLE COMPONENT TS')
     this.dataSource = new DataTableDataSource(this._authService.getMessage());
+    //this.dataSource = null
     this.response=this._authService.getPodatociUser()
     this.responseproekt=this._authService.getMessage()
-    console.log(this.responseproekt)
-    console.log('Nadmene e responsot')
   }
   
   Kraj(){ 
     console.log('Brisenje proekt')
 
     fetch('https://estitask.com/api/api/projecttask/FinishProjectTask?projectId='+this.responseproekt.ProjectTasks[2].ProjectId+'&projectTaskId='+this.responseproekt.ProjectTasks[2].Id+'&finishedUserEmail='+this.response.User.Email)
-                    .then(res=>console.log(res))
+                      .then(res=>console.log(res))
     fetch('https://estitask.com/api/api/projecttask/GetProjectTasksForUser?languageId=1&isDeleted=false&userId='+this.response.User.Id)
-                    .then(res=>
-                    this.dataSource = new DataTableDataSource(res)
-                    )
+                      .then(res=>{
+                        return res.json();
+                    })
+                    .then(data=> {
+                      console.log('podmene promenav');
+                      //this.dataSource = new DataTableDataSource(data);
+                      //this.dataSource.connect()
+                      this.dataSource.stavigiPodatociteOdGetot(data)
+                      console.log(this.dataSource)
+                        console.log('nadmene promenav');
+                    }) 
     fetch('https://estitask.com/api/api/project/FillProjectsForUser?isDeleted=false&userId='+this.response.User.Id)
                     .then(res=>{
                       return res.json();

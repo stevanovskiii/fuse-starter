@@ -115,14 +115,13 @@ export class AuthSignInComponent implements OnInit
                                    
                     // Navigate to the redirect url
                     this._router.navigateByUrl(redirectURL);
-                    this.UserName=response.User.FullName
+                    this.UserName=response.User.FirstName
                     this.share.setMessage(this.UserName)
 
 
                 },
                 (response) => {
 
-                    console.log("dwadawdwa nelogirano");
                     // Re-enable the form
                     this.signInForm.enable();
 

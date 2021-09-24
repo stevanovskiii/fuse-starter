@@ -84,11 +84,11 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad
                                
 
                                // Prevent the access
-                               console.log('Ne avtenticiran')
+                               //console.log('Ne avtenticiran')
                                return of(false);
                            }
                            
-                            console.log('Avtenticiran')
+                            //console.log('Avtenticiran')
                            // Allow the access
                            return of(true);
                        })

@@ -50,19 +50,23 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
   constructor(responseData:any) {
     super();
     this.responseData=responseData
+    this.stavigiPodatociteOdGetot(responseData)
+    //console.log('JAS SUM OD DATATABLE SOURCE')
+    //console.log(this.responseRows)
+    //console.log(this.data)
+    //console.log('JAS SUM OD DATATABLE SOURCE')
+  }
+
+  responseData:any
+  responseRows:any
+
+  stavigiPodatociteOdGetot(responseData){
     this.responseRows=responseData.ProjectTasks
 
     for(var i=0;i<this.responseRows.length;i++){
       this.data[i]={Client: this.responseRows[i].Customer, ProjectName: this.responseRows[i].ProjectName, TaskName: this.responseRows[i].Name, Starts: this.responseRows[i].StartDate, Ends: this.responseRows[i].EndDate, Categories: this.responseRows[i].TaskCategory, Status: this.responseRows[i].Status, Priority: this.responseRows[i].Priority};
     }
-    console.log('JAS SUM OD DATATABLE SOURCE')
-    console.log(this.responseRows)
-    console.log(this.data)
-    console.log('JAS SUM OD DATATABLE SOURCE')
   }
-
-  responseData:any
-  responseRows:any
 
   /**
    * Connect this data source to the table. The table will only update when
