@@ -16,7 +16,7 @@ export class PassChangeComponent implements OnInit {
               public _authService: AuthService) {}
 
   ngOnInit(): void {
-    this.oldPassOriginal=this._authService.getPodatociUser().User.Password
+    this.oldPassOriginal=this._authService.getPassUser()
   }
 
   Close(){
@@ -51,6 +51,7 @@ export class PassChangeComponent implements OnInit {
     body: formData
   })
     this.oldPassOriginal=this.newPass;//Ова не работи баш
+    this._authService.setNewPass(this.newPass)
     console.log(this.oldPassOriginal+'ova e starata koja sega ja povervam treba da bide ko novata')
     this.dialogRef.close();
     }

@@ -110,7 +110,7 @@ export class UserComponent implements OnInit, OnDestroy
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
         dialogConfig.width = "350px";
-        dialogConfig.height = "400px";
+        dialogConfig.height = "515px";
         dialogConfig.minWidth = "295px";
         this.dialog.open(PassChangeComponent,dialogConfig)
     }

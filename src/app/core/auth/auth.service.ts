@@ -81,6 +81,22 @@ export class AuthService
         return this.podatociuser;
     }
 
+    getPassUser(){
+        if(this.NovPrimen==false){
+            return this.podatociuser.User.Password;
+        }
+        else{
+            return this.NewPass
+        }
+    }
+
+    NewPass:string
+    NovPrimen:boolean=false;
+    setNewPass(NewPass){
+        this.NewPass=NewPass
+        this.NovPrimen=true
+    }
+
 
     /**
      * Sign in
