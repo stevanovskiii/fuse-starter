@@ -7,6 +7,8 @@ import { DataTableDataSource, DataTableItem } from './data-table-datasource';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ViewTaskComponent } from 'app/layout/common/view-task/view-task.component';
 import { AuthService } from 'app/core/auth/auth.service';
+import { RouterLinkWithHref } from '@angular/router';
+import { CdkRow } from '@angular/cdk/table';
 
 @Component({
   selector: 'app-data-table',/*sleketorov e e bas ko so si mislev to est ne e data-table*/
@@ -30,7 +32,28 @@ export class DataTableComponent implements AfterViewInit {
     //this.dataSource = null
     this.response=this._authService.getPodatociUser()
     this.responseproekt=this._authService.getMessage()
+    }
+  ZapocniProekt(){
+    console.log('Startuvanje proekt', this.responseproekt.ProjectTasks.Id)
+    fetch('https://estitask.com/api/api/projecttask/StartProjectTask?projectTaskId='+this.responseproekt.ProjectTasks[3].Id+'&reliedTaskId=0')
+                      .then(res=>{
+                        if (res.status==1){
+                            fetch('https://estitask.com/api/api/projecttask/GetProjectTasksForUserByStatus?languageId=1&isDeleted=false&statusId=1&userId='+this.response.User.Id)
+                            .then(res=>{
+                              var element = <HTMLInputElement> document.getElementById("ZapProekt");
+                                if(res.status==1){
+                                console.log(res)
+
+                                element.disabled = false;
+                                }
+                                else{
+                                  element.disabled = true;
+                                }
+                              })
+                          }
+                      })
   }
+
   
   Kraj(event){ 
     console.log('Brisenje proekt')
