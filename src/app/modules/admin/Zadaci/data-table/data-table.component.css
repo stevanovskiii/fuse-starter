@@ -34,12 +34,16 @@ mat-paginator{/* sega e reseno za dolnot del od tabelata toa sto neli pri svajp 
 
 #gorno{
   margin-bottom:7px;
+  visibility: visible;
 }
 
 #dolno{
   margin-bottom:14px;
+  visibility: visible;
 }
-
+#zapocni{
+  visibility: visible;
+}
 
 
 button{

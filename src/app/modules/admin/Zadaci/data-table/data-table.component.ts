@@ -32,51 +32,38 @@ export class DataTableComponent implements AfterViewInit {
     //this.dataSource = null
     this.response=this._authService.getPodatociUser()
     this.responseproekt=this._authService.getMessage()
-    }
-  ZapocniProekt(){
-    console.log('Startuvanje proekt', this.responseproekt.ProjectTasks.Id)
-    fetch('https://estitask.com/api/api/projecttask/StartProjectTask?projectTaskId='+this.responseproekt.ProjectTasks[3].Id+'&reliedTaskId=0')
-                      .then(res=>{
-                        if (res.status==1){
-                            fetch('https://estitask.com/api/api/projecttask/GetProjectTasksForUserByStatus?languageId=1&isDeleted=false&statusId=1&userId='+this.response.User.Id)
-                            .then(res=>{
-                              var element = <HTMLInputElement> document.getElementById("ZapProekt");
-                                if(res.status==1){
-                                console.log(res)
 
-                                element.disabled = false;
-                                }
-                                else{
-                                  element.disabled = true;
-                                }
-                              })
+    }
+  
+  ZapocniProekt(ID){
+    fetch('https://estitask.com/api/api/projecttask/StartProjectTask?projectTaskId='+this.responseproekt.ProjectTasks[ID].Id+'&reliedTaskId=0')
+                      .then(res=>{
+                        if (res.status==200){
+                          fetch('https://estitask.com/api/api/projecttask/GetProjectTasksForUser?languageId=1&isDeleted=false&userId='+this.response.User.Id)
+                              var element = <HTMLInputElement> document.getElementById("zapocni");
+                              element.hidden=true;
+                              console.log('Tranje kopce ova nad mene')
+                        }
+                            else{
+                              ID.element.hidden=false;
+                            }
                           }
-                      })
+                      )
   }
 
-  
   Kraj(ID){ 
-    console.log('Brisenje proekt')
-    console.log(ID)
-    //fetch('https://estitask.com/api/api/projecttask/FinishProjectTask?projectId='+this.responseproekt.ProjectTasks[ID].ProjectId+'&projectTaskId='+this.responseproekt.ProjectTasks[ID].Id+'&finishedUserEmail='+this.response.User.Email)
-    //                  .then(res=>console.log(res))
-    fetch('https://estitask.com/api/api/projecttask/GetProjectTasksForUser?languageId=1&isDeleted=false&userId='+this.response.User.Id)
-                      .then(res=>{
-                        return res.json();
-                    })
-                    .then(data=> {
-                      console.log('podmene promenav');
-                      //this.dataSource = new DataTableDataSource(data);
-                      //this.dataSource.connect()
-                      this.dataSource.stavigiPodatociteOdGetot(data)
-                      console.log(this.dataSource)
-                        console.log('nadmene promenav');
-                    }) 
-    fetch('https://estitask.com/api/api/project/FillProjectsForUser?isDeleted=false&userId='+this.response.User.Id)
-                    .then(res=>{
-                      return res.json();
-                        
-                    })
+    fetch('https://estitask.com/api/api/projecttask/FinishProjectTask?projectId='+this.responseproekt.ProjectTasks[ID].ProjectId+'&projectTaskId='+this.responseproekt.ProjectTasks[ID].Id+'&finishedUserEmail='+this.response.User.Email)
+    .then(res=>{
+      if (res.status==200){
+            fetch('https://estitask.com/api/api/projecttask/GetProjectTasksForUser?languageId=1&isDeleted=false&userId='+this.response.User.Id)
+            var element = <HTMLInputElement> document.getElementById("dolno");
+            element.hidden=true;
+      }
+          else{
+            element.hidden=false;
+          }
+        }
+    )
                     
                     
   }
@@ -108,6 +95,7 @@ export class DataTableComponent implements AfterViewInit {
         dialogConfig.height = "1400px";
         dialogConfig.minWidth = "295px";
         this.dialog.open(ViewTaskComponent,dialogConfig)    
+        
   }
 
 
