@@ -7,6 +7,7 @@ import { AuthService } from 'app/core/auth/auth.service';
 
 // TODO: Replace this with your own data model type
 export interface DataTableItem {
+  ID: string;
   Client: string;
   ProjectName: string;
   TaskName: string;
@@ -19,22 +20,22 @@ export interface DataTableItem {
 
 // TODO: replace this with real data from your application
 const EXAMPLE_DATA: DataTableItem[] = [
-  {Client: 'клиент 1', ProjectName: 'redizajn', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
-  {Client: '/', ProjectName: 'redizajn', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
-  {Client: '/', ProjectName: 'redizajn', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
-  {Client: '/', ProjectName: 'redizajn', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
-  {Client: '/', ProjectName: 'redizajn', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
-  {Client: '/', ProjectName: 'redizajn', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
-  {Client: '/', ProjectName: 'redizajn', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
-  {Client: '/', ProjectName: 'redizajn  ova e podlogo za da se vidi kako rabotat kopcianta', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
-  {Client: '/', ProjectName: 'redizajn gornovo bese grdo za da bidi najgore', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
-  {Client: '/', ProjectName: 'redizajn', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
-  {Client: '/', ProjectName: 'redizajn', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
-  {Client: '/', ProjectName: 'redizajn', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
+  {ID: '0',Client: 'клиент 1', ProjectName: 'redizajn', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
+  {ID: '1',Client: '/', ProjectName: 'redizajn', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
+  {ID: '2',Client: '/', ProjectName: 'redizajn', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
+  {ID: '3',Client: '/', ProjectName: 'redizajn', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
+  {ID: '4',Client: '/', ProjectName: 'redizajn', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
+  {ID: '5',Client: '/', ProjectName: 'redizajn', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
+  {ID: '6',Client: '/', ProjectName: 'redizajn', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
+  {ID: '7',Client: '/', ProjectName: 'redizajn  ova e podlogo za da se vidi kako rabotat kopcianta', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
+  {ID: '8',Client: '/', ProjectName: 'redizajn gornovo bese grdo za da bidi najgore', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
+  {ID: '9',Client: '/', ProjectName: 'redizajn', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
+  {ID: '10',Client: '/', ProjectName: 'redizajn', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
+  {ID: '11',Client: '/', ProjectName: 'redizajn', TaskName: 'redizajn', Starts: '26-07-2021', Ends: '08-02-2021', Categories: 'softver', Status: 'se izvrsuva', Priority: 'normalen',},
 ]
 
 const EXAMPLE_DATA2: DataTableItem[] =  [
-  {Client: '/', ProjectName: '/', TaskName: '/', Starts: '/', Ends: '/', Categories: '/', Status: '/', Priority: '/',},
+  {ID: '0', Client: '/', ProjectName: '/', TaskName: '/', Starts: '/', Ends: '/', Categories: '/', Status: '/', Priority: '/',},
 ]
 
 /**
@@ -64,7 +65,7 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
     this.responseRows=responseData.ProjectTasks
 
     for(var i=0;i<this.responseRows.length;i++){
-      this.data[i]={Client: this.responseRows[i].Customer, ProjectName: this.responseRows[i].ProjectName, TaskName: this.responseRows[i].Name, Starts: this.responseRows[i].StartDate, Ends: this.responseRows[i].EndDate, Categories: this.responseRows[i].TaskCategory, Status: this.responseRows[i].Status, Priority: this.responseRows[i].Priority};
+      this.data[i]={ID: i.toString(), Client: this.responseRows[i].Customer, ProjectName: this.responseRows[i].ProjectName, TaskName: this.responseRows[i].Name, Starts: this.responseRows[i].StartDate, Ends: this.responseRows[i].EndDate, Categories: this.responseRows[i].TaskCategory, Status: this.responseRows[i].Status, Priority: this.responseRows[i].Priority};
     }
   }
 
@@ -117,6 +118,7 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
     return data.sort((a, b) => {
       const isAsc = this.sort?.direction === 'asc';
       switch (this.sort?.active) {
+        case 'ID': return compare(a.ID, b.ID, isAsc);
         case 'Client': return compare(a.Client, b.Client, isAsc);
         case 'ProjectName': return compare(+a.ProjectName, +b.ProjectName, isAsc);
         case 'TaskName': return compare(a.TaskName, b.TaskName, isAsc);

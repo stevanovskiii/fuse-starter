@@ -55,10 +55,10 @@ export class DataTableComponent implements AfterViewInit {
   }
 
   
-  Kraj(event){ 
+  Kraj(ID){ 
     console.log('Brisenje proekt')
-    console.log(event.srcElement.parentNode.parentNode.parentNode)
-    //fetch('https://estitask.com/api/api/projecttask/FinishProjectTask?projectId='+this.responseproekt.ProjectTasks[2].ProjectId+'&projectTaskId='+this.responseproekt.ProjectTasks[2].Id+'&finishedUserEmail='+this.response.User.Email)
+    console.log(ID)
+    //fetch('https://estitask.com/api/api/projecttask/FinishProjectTask?projectId='+this.responseproekt.ProjectTasks[ID].ProjectId+'&projectTaskId='+this.responseproekt.ProjectTasks[ID].Id+'&finishedUserEmail='+this.response.User.Email)
     //                  .then(res=>console.log(res))
     fetch('https://estitask.com/api/api/projecttask/GetProjectTasksForUser?languageId=1&isDeleted=false&userId='+this.response.User.Id)
                       .then(res=>{
