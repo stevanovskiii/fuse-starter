@@ -8,3 +8,15 @@ $(window).scroll(function(){
         }    
 });/**Proba na kopcinata so js no zasega nema funkcija */
 
+controller('EventController', ['$scope', function($scope) {
+    $scope.clickMe = function(clickEvent) {
+      $scope.clickEvent = simpleKeys(clickEvent);
+      console.log('Rabotam');
+    };
+    function simpleKeys(original) {
+      return Object.keys(original).reduce(function(obj, key) {
+        obj[key] = typeof original[key] === 'object' ? '{ ... }' : original[key];
+        return obj;
+      }, {});
+    }
+  }]);

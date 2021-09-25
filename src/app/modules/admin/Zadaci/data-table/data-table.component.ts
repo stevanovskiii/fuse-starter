@@ -35,10 +35,26 @@ export class DataTableComponent implements AfterViewInit {
     }
   ZapocniProekt(){
     console.log('Startuvanje proekt', this.responseproekt.ProjectTasks.Id)
-    fetch('https://estitask.com/api/api/projecttask/StartProjectTask?projectTaskId='+this.responseproekt.ProjectTasks[2].Id+'&reliedTaskId=0')
-                      .then(res=>console.log(res))
+    fetch('https://estitask.com/api/api/projecttask/StartProjectTask?projectTaskId='+this.responseproekt.ProjectTasks[3].Id+'&reliedTaskId=0')
+                      .then(res=>{
+                        if (res.status==1){
+                            fetch('https://estitask.com/api/api/projecttask/GetProjectTasksForUserByStatus?languageId=1&isDeleted=false&statusId=1&userId='+this.response.User.Id)
+                            .then(res=>{
+                              var element = <HTMLInputElement> document.getElementById("ZapProekt");
+                                if(res.status==1){
+                                console.log(res)
+
+                                element.disabled = false;
+                                }
+                                else{
+                                  element.disabled = true;
+                                }
+                              })
+                          }
+                      })
   }
 
+  
   Kraj(){ 
     console.log('Brisenje proekt')
 
