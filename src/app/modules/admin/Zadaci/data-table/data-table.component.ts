@@ -32,11 +32,11 @@ export class DataTableComponent implements AfterViewInit {
     this.responseproekt=this._authService.getMessage()
   }
   
-  Kraj(){ 
+  Kraj(event){ 
     console.log('Brisenje proekt')
-
-    fetch('https://estitask.com/api/api/projecttask/FinishProjectTask?projectId='+this.responseproekt.ProjectTasks[2].ProjectId+'&projectTaskId='+this.responseproekt.ProjectTasks[2].Id+'&finishedUserEmail='+this.response.User.Email)
-                      .then(res=>console.log(res))
+    console.log(event.srcElement.parentNode.parentNode.parentNode)
+    //fetch('https://estitask.com/api/api/projecttask/FinishProjectTask?projectId='+this.responseproekt.ProjectTasks[2].ProjectId+'&projectTaskId='+this.responseproekt.ProjectTasks[2].Id+'&finishedUserEmail='+this.response.User.Email)
+    //                  .then(res=>console.log(res))
     fetch('https://estitask.com/api/api/projecttask/GetProjectTasksForUser?languageId=1&isDeleted=false&userId='+this.response.User.Id)
                       .then(res=>{
                         return res.json();
