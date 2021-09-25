@@ -45,7 +45,7 @@ export class DataTableComponent implements AfterViewInit {
                               console.log('Tranje kopce ova nad mene')
                         }
                             else{
-                              ID.element.hidden=false;
+                              element.hidden=false;
                             }
                           }
                       )
