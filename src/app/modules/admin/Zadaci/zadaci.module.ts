@@ -27,7 +27,8 @@ const zadaciRoutes: Route[] = [
       MatIconModule,
       MatTableModule,
       MatPaginatorModule,
-      MatSortModule
+      MatSortModule,
+      CommonModule
   ]
 })
 export class ZadaciModule { }
