@@ -23,7 +23,7 @@ export class DataTableComponent implements AfterViewInit {
   response: any
   responseproekt: any
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['buttons','id', 'name', 'task', 'Почнува',	'Завршува',	'Категории',	'Статус',	'Приоритет'];
+  displayedColumns = ['buttons','id', 'name', 'task', 'Почнува',	'Завршува',	'Категории',	'status',	'Приоритет'];
   constructor(private dialog: MatDialog, private _authService:AuthService ) {
     //console.log('JAS SUM OD DATATABLE COMPONENT TS')
     //console.log(this._authService.getMessage())
@@ -34,6 +34,13 @@ export class DataTableComponent implements AfterViewInit {
     this.responseproekt=this._authService.getMessage()
 
     }
+
+Status(){
+      console.log('Test Status')
+      function StatusZavrsen(){
+        console.log('Status zarsen')
+      }
+    }
   
   ZapocniProekt(ID){
     fetch('https://estitask.com/api/api/projecttask/StartProjectTask?projectTaskId='+this.responseproekt.ProjectTasks[ID].Id+'&reliedTaskId=0')
@@ -41,7 +48,8 @@ export class DataTableComponent implements AfterViewInit {
                         if (res.status==200){
                           fetch('https://estitask.com/api/api/projecttask/GetProjectTasksForUser?languageId=1&isDeleted=false&userId='+this.response.User.Id)
                               var element = <HTMLInputElement> document.getElementById("zapocni");
-                              element.hidden=true;
+                              element.hidden = true;
+                              //element.hidden=true;
                               console.log('Tranje kopce ova nad mene')
                         }
                             else{
@@ -87,7 +95,30 @@ export class DataTableComponent implements AfterViewInit {
           this.OtvoriFiltriBool = false;
         }
     }
-  View(){
+  View(ID){
+    fetch('https://estitask.com/api/api/projecttask/FillCategory?companyId=4')
+                      .then(res=>console.log(res));
+                      fetch('https://estitask.com/api/api/projecttask/FillPriority?languageId=1')
+                      .then(res=>console.log(res));
+                      fetch('https://estitask.com/api/api/projecttask/FillUser?companyId=4')
+                      .then(res=>console.log(res));
+                      fetch('https://estitask.com/api/api/projecttask/FillTask?companyId=4')
+                      .then(res=>console.log(res));
+                      fetch('https://estitask.com/api/api/projecttask/FillCustomer?companyId=4')
+                      .then(res=>console.log(res));
+                      fetch('https://estitask.com/api/api/projecttask/FillReliedTask?projectId='+this.responseproekt.ProjectTasks[ID].ProjectId)
+                      .then(res=>console.log(res));
+                      fetch('https://estitask.com/api/api/projecttask/GetParticipantsByTaskId?projectTaskId='+this.responseproekt.ProjectTasks[ID].Id)
+                      .then(res=>console.log(res));
+                      fetch('https://estitask.com/api/api/projecttask/GetPredefinedTasksByTaskId?projectTaskId='+this.responseproekt.ProjectTasks[ID].Id)
+                      .then(res=>console.log(res));
+                      fetch('https://estitask.com/api/api/projecttask/GetEstimationInformationCount?projectTaskId='+this.responseproekt.ProjectTasks[ID].Id)
+                      .then(res=>console.log(res));
+                      fetch('https://estitask.com/api/api/district/GetDistricts?companyId=4')
+                      .then(res=>console.log(res));
+
+
+
       const dialogConfig = new MatDialogConfig();
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
@@ -97,7 +128,6 @@ export class DataTableComponent implements AfterViewInit {
         this.dialog.open(ViewTaskComponent,dialogConfig)    
         
   }
-
 
   kopcina(){/* ovaa funkcija zasega nema korsit ama neka stoj za sekoj slucaj dane se naj za neso */
     if(true){
