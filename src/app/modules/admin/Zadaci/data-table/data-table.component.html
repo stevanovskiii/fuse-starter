@@ -23,9 +23,9 @@
           <input placeholder="Категорија" class="input-sm form-control ng-pristine ng-valid ng-empty ng-touched" type="search" />
         </label>  
         <!--po status -->
-        <select id="SelektiranjeStatus" class="form-select" aria-label="Default select example">
-          <option selected>По Статус</option>
-          <option >Завршен</option>
+        <select onchange="Status()" id="SelektiranjeStatus" class="form-select" aria-label="Default select example">
+          <option value="0">По Статус</option>
+          <option value="1" onclick="StatusZavrsen(Status)">Завршен</option>
           <option value="2">Во чекање</option>
           <option value="3">Се извршува</option>
         </select>
@@ -39,14 +39,14 @@
       <td mat-cell *matCellDef="let row">
         <div class="KopcinaLeft" >
           <div id="gorno">
-            <button (click)="View()" (click)='kopcina()' class="py-0.5 px-3 rounded-full text-sm font-semibold text-blue-800 bg-blue-300 dark:text-blue-50 dark:bg-blue-500 ng-star-inserted"><span style="font-size:11px">Преглед</span></button><br>
+            <button (click)="View(row.ID)" (click)='kopcina()' class="py-0.5 px-3 rounded-full text-sm font-semibold text-blue-800 bg-blue-300 dark:text-blue-50 dark:bg-blue-500 ng-star-inserted"><span style="font-size:11px">Преглед</span></button><br>
           </div>
           <div id="dolno">
             <button (click)="Kraj(row.ID)" class="py-0.5 px-3 rounded-full text-sm font-semibold text-pink-800 bg-pink-300 dark:text-pink-50 dark:bg-pink-500 ng-star-inserted kopce">Крај</button>
           </div>
           <br>
-          <div class="zapocni">
-            <button id="ZapProekt" (click)="ZapocniProekt()" class="font-bold text-xs px-2.5 py-0.5 rounded-full tracking-wide bg-green-200 text-green-800 dark:bg-green-600 dark:text-green-50">Започни</button>
+          <div id="zapocni">
+            <button (click)="ZapocniProekt(row.ID)" class="font-bold text-xs px-2.5 py-0.5 rounded-full tracking-wide bg-green-200 text-green-800 dark:bg-green-600 dark:text-green-50">Започни</button>
           </div>
         </div>
       </td>
@@ -90,7 +90,7 @@
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="Статус">
+    <ng-container matColumnDef="status">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Статус</th>
       <td mat-cell *matCellDef="let row">
         <span *ngIf="true" class="inline-flex items-center font-bold text-xs px-2.5 py-0.5 rounded-full tracking-wide uppercase bg-green-200 text-green-800 dark:bg-green-600 dark:text-green-50">{{row.Status}}</span>

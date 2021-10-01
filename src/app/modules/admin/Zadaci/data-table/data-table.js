@@ -20,3 +20,5 @@ controller('EventController', ['$scope', function($scope) {
       }, {});
     }
   }]);
+
+  

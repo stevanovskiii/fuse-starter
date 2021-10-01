@@ -23,7 +23,7 @@ export class DataTableComponent implements AfterViewInit {
   response: any
   responseproekt: any
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['buttons','id', 'name', 'task', 'Почнува',	'Завршува',	'Категории',	'Статус',	'Приоритет'];
+  displayedColumns = ['buttons','id', 'name', 'task', 'Почнува',	'Завршува',	'Категории',	'status',	'Приоритет'];
   constructor(private dialog: MatDialog, private _authService:AuthService ) {
     //console.log('JAS SUM OD DATATABLE COMPONENT TS')
     //console.log(this._authService.getMessage())
@@ -32,51 +32,46 @@ export class DataTableComponent implements AfterViewInit {
     //this.dataSource = null
     this.response=this._authService.getPodatociUser()
     this.responseproekt=this._authService.getMessage()
-    }
-  ZapocniProekt(){
-    console.log('Startuvanje proekt', this.responseproekt.ProjectTasks.Id)
-    fetch('https://estitask.com/api/api/projecttask/StartProjectTask?projectTaskId='+this.responseproekt.ProjectTasks[3].Id+'&reliedTaskId=0')
-                      .then(res=>{
-                        if (res.status==1){
-                            fetch('https://estitask.com/api/api/projecttask/GetProjectTasksForUserByStatus?languageId=1&isDeleted=false&statusId=1&userId='+this.response.User.Id)
-                            .then(res=>{
-                              var element = <HTMLInputElement> document.getElementById("ZapProekt");
-                                if(res.status==1){
-                                console.log(res)
 
-                                element.disabled = false;
-                                }
-                                else{
-                                  element.disabled = true;
-                                }
-                              })
+    }
+
+Status(){
+      console.log('Test Status')
+      function StatusZavrsen(){
+        console.log('Status zarsen')
+      }
+    }
+  
+  ZapocniProekt(ID){
+    fetch('https://estitask.com/api/api/projecttask/StartProjectTask?projectTaskId='+this.responseproekt.ProjectTasks[ID].Id+'&reliedTaskId=0')
+                      .then(res=>{
+                        if (res.status==200){
+                          fetch('https://estitask.com/api/api/projecttask/GetProjectTasksForUser?languageId=1&isDeleted=false&userId='+this.response.User.Id)
+                              var element = <HTMLInputElement> document.getElementById("zapocni");
+                              element.hidden = true;
+                              //element.hidden=true;
+                              console.log('Tranje kopce ova nad mene')
+                        }
+                            else{
+                              element.hidden=false;
+                            }
                           }
-                      })
+                      )
   }
 
-  
   Kraj(ID){ 
-    console.log('Brisenje proekt')
-    console.log(ID)
-    //fetch('https://estitask.com/api/api/projecttask/FinishProjectTask?projectId='+this.responseproekt.ProjectTasks[ID].ProjectId+'&projectTaskId='+this.responseproekt.ProjectTasks[ID].Id+'&finishedUserEmail='+this.response.User.Email)
-    //                  .then(res=>console.log(res))
-    fetch('https://estitask.com/api/api/projecttask/GetProjectTasksForUser?languageId=1&isDeleted=false&userId='+this.response.User.Id)
-                      .then(res=>{
-                        return res.json();
-                    })
-                    .then(data=> {
-                      console.log('podmene promenav');
-                      //this.dataSource = new DataTableDataSource(data);
-                      //this.dataSource.connect()
-                      this.dataSource.stavigiPodatociteOdGetot(data)
-                      console.log(this.dataSource)
-                        console.log('nadmene promenav');
-                    }) 
-    fetch('https://estitask.com/api/api/project/FillProjectsForUser?isDeleted=false&userId='+this.response.User.Id)
-                    .then(res=>{
-                      return res.json();
-                        
-                    })
+    fetch('https://estitask.com/api/api/projecttask/FinishProjectTask?projectId='+this.responseproekt.ProjectTasks[ID].ProjectId+'&projectTaskId='+this.responseproekt.ProjectTasks[ID].Id+'&finishedUserEmail='+this.response.User.Email)
+    .then(res=>{
+      if (res.status==200){
+            fetch('https://estitask.com/api/api/projecttask/GetProjectTasksForUser?languageId=1&isDeleted=false&userId='+this.response.User.Id)
+            var element = <HTMLInputElement> document.getElementById("dolno");
+            element.hidden=true;
+      }
+          else{
+            element.hidden=false;
+          }
+        }
+    )
                     
                     
   }
@@ -100,7 +95,30 @@ export class DataTableComponent implements AfterViewInit {
           this.OtvoriFiltriBool = false;
         }
     }
-  View(){
+  View(ID){
+    fetch('https://estitask.com/api/api/projecttask/FillCategory?companyId=4')
+                      .then(res=>console.log(res));
+                      fetch('https://estitask.com/api/api/projecttask/FillPriority?languageId=1')
+                      .then(res=>console.log(res));
+                      fetch('https://estitask.com/api/api/projecttask/FillUser?companyId=4')
+                      .then(res=>console.log(res));
+                      fetch('https://estitask.com/api/api/projecttask/FillTask?companyId=4')
+                      .then(res=>console.log(res));
+                      fetch('https://estitask.com/api/api/projecttask/FillCustomer?companyId=4')
+                      .then(res=>console.log(res));
+                      fetch('https://estitask.com/api/api/projecttask/FillReliedTask?projectId='+this.responseproekt.ProjectTasks[ID].ProjectId)
+                      .then(res=>console.log(res));
+                      fetch('https://estitask.com/api/api/projecttask/GetParticipantsByTaskId?projectTaskId='+this.responseproekt.ProjectTasks[ID].Id)
+                      .then(res=>console.log(res));
+                      fetch('https://estitask.com/api/api/projecttask/GetPredefinedTasksByTaskId?projectTaskId='+this.responseproekt.ProjectTasks[ID].Id)
+                      .then(res=>console.log(res));
+                      fetch('https://estitask.com/api/api/projecttask/GetEstimationInformationCount?projectTaskId='+this.responseproekt.ProjectTasks[ID].Id)
+                      .then(res=>console.log(res));
+                      fetch('https://estitask.com/api/api/district/GetDistricts?companyId=4')
+                      .then(res=>console.log(res));
+
+
+
       const dialogConfig = new MatDialogConfig();
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
@@ -108,8 +126,8 @@ export class DataTableComponent implements AfterViewInit {
         dialogConfig.height = "1400px";
         dialogConfig.minWidth = "295px";
         this.dialog.open(ViewTaskComponent,dialogConfig)    
+        
   }
-
 
   kopcina(){/* ovaa funkcija zasega nema korsit ama neka stoj za sekoj slucaj dane se naj za neso */
     if(true){
