@@ -4,7 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { parseString } from 'rrule/dist/esm/src/parsestring';/* ova e za funkcijata koja nema nikakva korist za sega, daa so kopcina() */
 import { DataTableDataSource, DataTableItem } from './data-table-datasource';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ViewTaskComponent } from 'app/layout/common/view-task/view-task.component';
 import { AuthService } from 'app/core/auth/auth.service';
 import { RouterLinkWithHref } from '@angular/router';
@@ -96,37 +96,91 @@ Status(){
         }
     }
   View(ID){
-    fetch('https://estitask.com/api/api/projecttask/FillCategory?companyId=4')
-                      .then(res=>console.log(res));
+    /*fetch('https://estitask.com/api/api/projecttask/FillCategory?companyId=4')
+                      .then(res=>{
+                        return res.json();
+                      })
+                      .then(data=> {
+                        //console.log(data);
+                    }) 
                       fetch('https://estitask.com/api/api/projecttask/FillPriority?languageId=1')
-                      .then(res=>console.log(res));
+                      .then(res=>{
+                        return res.json();
+                      })
+                      .then(data=> {
+                        //console.log(data);
+                    }) 
                       fetch('https://estitask.com/api/api/projecttask/FillUser?companyId=4')
-                      .then(res=>console.log(res));
+                      .then(res=>{
+                        return res.json();
+                      })
+                      .then(data=> {
+                        //console.log(data);
+                    }) 
                       fetch('https://estitask.com/api/api/projecttask/FillTask?companyId=4')
-                      .then(res=>console.log(res));
+                      .then(res=>{
+                        return res.json();
+                      })
+                      .then(data=> {
+                        //console.log(data);
+                    }) 
                       fetch('https://estitask.com/api/api/projecttask/FillCustomer?companyId=4')
-                      .then(res=>console.log(res));
+                      .then(res=>{
+                        return res.json();
+                      })
+                      .then(data=> {
+                        //console.log(data);
+                    }) 
                       fetch('https://estitask.com/api/api/projecttask/FillReliedTask?projectId='+this.responseproekt.ProjectTasks[ID].ProjectId)
-                      .then(res=>console.log(res));
+                      .then(res=>{
+                        return res.json();
+                      })
+                      .then(data=> {
+                        //console.log(data);
+                    }) 
                       fetch('https://estitask.com/api/api/projecttask/GetParticipantsByTaskId?projectTaskId='+this.responseproekt.ProjectTasks[ID].Id)
-                      .then(res=>console.log(res));
+                      .then(res=>{
+                        return res.json();
+                      })
+                      .then(data=> {
+                        //console.log(data);
+                    }) 
                       fetch('https://estitask.com/api/api/projecttask/GetPredefinedTasksByTaskId?projectTaskId='+this.responseproekt.ProjectTasks[ID].Id)
-                      .then(res=>console.log(res));
+                      .then(res=>{
+                        return res.json();
+                      })
+                      .then(data=> {
+                        //console.log(data);
+                    }) 
                       fetch('https://estitask.com/api/api/projecttask/GetEstimationInformationCount?projectTaskId='+this.responseproekt.ProjectTasks[ID].Id)
-                      .then(res=>console.log(res));
+                      .then(res=>{
+                        return res.json();
+                      })
+                      .then(data=> {
+                        //console.log(data);
+                    }) 
                       fetch('https://estitask.com/api/api/district/GetDistricts?companyId=4')
-                      .then(res=>console.log(res));
-
-
-
-      const dialogConfig = new MatDialogConfig();
-        dialogConfig.disableClose = true;
-        dialogConfig.autoFocus = true;
-        dialogConfig.width = "400px";
-        dialogConfig.height = "1400px";
-        dialogConfig.minWidth = "295px";
-        this.dialog.open(ViewTaskComponent,dialogConfig)    
-        
+                      .then(res=>{
+                        return res.json();
+                      })
+                      .then(data=> {
+                        //console.log(data);
+                    })*/
+                    fetch('https://estitask.com/api/api/projecttask/GetProjectTasksForUser?languageId=1&isDeleted=false&userId='+this.response.User.Id)
+                      .then(res=>{
+                        return res.json();
+                      })
+                      .then(data=> {
+                        console.log(data.ProjectTasks[ID]);
+                        const dialogConfig = new MatDialogConfig();
+                              dialogConfig.disableClose = true;
+                              dialogConfig.autoFocus = true;
+                              dialogConfig.width = "400px";
+                              dialogConfig.height = "1400px";
+                              dialogConfig.minWidth = "295px";
+                              dialogConfig.data = data.ProjectTasks[ID];
+                              this.dialog.open(ViewTaskComponent,dialogConfig)   
+                    })  
   }
 
   kopcina(){/* ovaa funkcija zasega nema korsit ama neka stoj za sekoj slucaj dane se naj za neso */

@@ -6,6 +6,8 @@ import { CommentsComponent } from '../comments/comments.component';
 import { UploadFileComponent } from '../upload-file/upload-file.component';
 import { WorkComponent } from '../work/work.component';
 import { GalleryComponent } from '../gallery/gallery.component';
+import { Inject } from '@angular/core';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 
 @Component({
@@ -14,8 +16,10 @@ import { GalleryComponent } from '../gallery/gallery.component';
   styleUrls: ['./view-task.component.scss']
 })
 export class ViewTaskComponent implements OnInit {
-
-  constructor(public dialogRef: MatDialogRef<DataTableComponent>,private dialog: MatDialog) { } 
+data:any
+  constructor(public dialogRef: MatDialogRef<DataTableComponent>,private dialog: MatDialog,@Inject(MAT_DIALOG_DATA) data) {
+    this.data=data;
+   }
 
   ngOnInit(): void {
   }
