@@ -68,6 +68,9 @@ export class AuthService
     data:any
     setMessage(data){
         this.data=data;
+        //console.log("jas setMessage se izvrsiv")
+        //console.log(this.data)
+        //console.log("Eve sto e data sega gore")
     }
     getMessage(){
         return this.data;

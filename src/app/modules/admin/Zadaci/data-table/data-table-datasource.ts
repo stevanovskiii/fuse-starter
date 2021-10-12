@@ -50,7 +50,15 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
 
   constructor(responseData:any) {
     super();
+    //console.log('eve kolku e this.data vo construcotort na data-soruce')
+    //console.log(this.data)
+    //console.log('eve kolku e this.data vo construcotort na data-soruce')
     this.responseData=responseData
+    //console.log('Eve jas vo datasource sto dobiv')
+    //console.log(responseData)
+    //console.log('Eve jas vo datasource sto dobiv')
+
+    
     this.stavigiPodatociteOdGetot(responseData)
     //console.log('JAS SUM OD DATATABLE SOURCE')
     //console.log(this.responseRows)
@@ -64,9 +72,24 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
   stavigiPodatociteOdGetot(responseData){
     this.responseRows=responseData.ProjectTasks
 
+    //console.log('eve kolku e this.data pred for-ot')
+    this.data.splice(0)//E OVA SVRSI CELA RABOTA
+    //console.log(this.data)
+    //console.log('eve kolku e this.data pred for-ot')
+
+
+    //console.log('eve kolku e this.responseRows.length')
+    //console.log(this.responseRows.length)
+    //console.log(this.responseRows)
+    //console.log('eve kolku e this.responseRows.length')
+
     for(var i=0;i<this.responseRows.length;i++){
       this.data[i]={ID: i.toString(), Client: this.responseRows[i].Customer, ProjectName: this.responseRows[i].ProjectName, TaskName: this.responseRows[i].Name, Starts: this.responseRows[i].StartDate, Ends: this.responseRows[i].EndDate, Categories: this.responseRows[i].TaskCategory, Status: this.responseRows[i].Status, Priority: this.responseRows[i].Priority};
     }
+
+    //console.log('eve na sto e data vo datasource ednakvo vo funkcijata')
+    //console.log(this.data)
+    //console.log('eve na sto e data vo datasource ednakvo vo funkcijata')
   }
 
   /**

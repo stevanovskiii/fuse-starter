@@ -22,18 +22,38 @@ export class DataTableComponent implements AfterViewInit {
   dataSource: DataTableDataSource;
   response: any
   responseproekt: any
+
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['buttons','id', 'name', 'task', 'Почнува',	'Завршува',	'Категории',	'status',	'Приоритет'];
   constructor(private dialog: MatDialog, private _authService:AuthService ) {
     //console.log('JAS SUM OD DATATABLE COMPONENT TS')
     //console.log(this._authService.getMessage())
     //console.log('JAS SUM OD DATATABLE COMPONENT TS')
-    this.dataSource = new DataTableDataSource(this._authService.getMessage());
     //this.dataSource = null
     this.response=this._authService.getPodatociUser()
     this.responseproekt=this._authService.getMessage()
 
-    }
+    //console.log('this._authService.getMessage()')
+    //console.log(this._authService.getMessage())
+    //console.log('this._authService.getMessage()')
+
+    //console.log('ove go od auth service so zemat')
+    //console.log(this._authService.getMessage())
+    //console.log('ove go od auth service so zemat')
+    this.dataSource = new DataTableDataSource(this._authService.getMessage());
+
+}
+
+ZemiPodatoci(){
+  fetch('https://estitask.com/api/api/projecttask/GetProjectTasksForUser?languageId=1&isDeleted=false&userId='+this.response.User.Id)
+            .then(res=>{
+              return res.json()
+            })
+            .then(data=>{
+              this._authService.setMessage(data)
+            })
+}
+
 
 Status(){
       console.log('Test Status')
@@ -63,16 +83,16 @@ Status(){
     fetch('https://estitask.com/api/api/projecttask/FinishProjectTask?projectId='+this.responseproekt.ProjectTasks[ID].ProjectId+'&projectTaskId='+this.responseproekt.ProjectTasks[ID].Id+'&finishedUserEmail='+this.response.User.Email)
     .then(res=>{
       if (res.status==200){
-            //fetch('https://estitask.com/api/api/projecttask/GetProjectTasksForUser?languageId=1&isDeleted=false&userId='+this.response.User.Id)
-            //.then(res=>{
-            //  return res.json()
-            //})
-            //.then(data=> {
-            //this.dataSource=null;
-            //this.dataSource.stavigiPodatociteOdGetot(data);
-              console.log(event.target.parentNode.parentNode.parentNode.parentNode)
+            fetch('https://estitask.com/api/api/projecttask/GetProjectTasksForUser?languageId=1&isDeleted=false&userId='+this.response.User.Id)
+            .then(res=>{
+              return res.json()
+            })
+            .then(data=> {
+              //console.log('Eve sto prakjam od fetchot vo Kraj funkcijata so setMessage')
+              this._authService.setMessage(data)
+              //console.log('Eve sto prakjam od fetchot vo Kraj funkcijata so setMessage')
               event.target.parentNode.parentNode.parentNode.parentNode.hidden=true;
-            //})   
+            })  
           }
         }
     )                
@@ -97,6 +117,7 @@ Status(){
           this.OtvoriFiltriBool = false;
         }
     }
+
   View(ID){
     /*fetch('https://estitask.com/api/api/projecttask/FillCategory?companyId=4')
                       .then(res=>{
