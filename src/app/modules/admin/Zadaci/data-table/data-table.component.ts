@@ -59,21 +59,23 @@ Status(){
                       )
   }
 
-  Kraj(ID){ 
+  Kraj(ID,event){ 
     fetch('https://estitask.com/api/api/projecttask/FinishProjectTask?projectId='+this.responseproekt.ProjectTasks[ID].ProjectId+'&projectTaskId='+this.responseproekt.ProjectTasks[ID].Id+'&finishedUserEmail='+this.response.User.Email)
     .then(res=>{
       if (res.status==200){
-            fetch('https://estitask.com/api/api/projecttask/GetProjectTasksForUser?languageId=1&isDeleted=false&userId='+this.response.User.Id)
-            var element = <HTMLInputElement> document.getElementById("dolno");
-            element.hidden=true;
-      }
-          else{
-            element.hidden=false;
+            //fetch('https://estitask.com/api/api/projecttask/GetProjectTasksForUser?languageId=1&isDeleted=false&userId='+this.response.User.Id)
+            //.then(res=>{
+            //  return res.json()
+            //})
+            //.then(data=> {
+            //this.dataSource=null;
+            //this.dataSource.stavigiPodatociteOdGetot(data);
+              console.log(event.target.parentNode.parentNode.parentNode.parentNode)
+              event.target.parentNode.parentNode.parentNode.parentNode.hidden=true;
+            //})   
           }
         }
-    )
-                    
-                    
+    )                
   }
 
   ngAfterViewInit(): void {
@@ -171,7 +173,7 @@ Status(){
                         return res.json();
                       })
                       .then(data=> {
-                        console.log(data.ProjectTasks[ID]);
+                        //console.log(data.ProjectTasks[ID]);
                         const dialogConfig = new MatDialogConfig();
                               dialogConfig.disableClose = true;
                               dialogConfig.autoFocus = true;
