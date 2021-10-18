@@ -66,6 +66,8 @@ Status(){
     }
   
   ZapocniProekt(ID,event){
+    console.log(ID)
+    console.log(this.responseproekt.ProjectTasks)
     fetch('https://estitask.com/api/api/projecttask/StartProjectTask?projectTaskId='+this.responseproekt.ProjectTasks[ID].Id+'&reliedTaskId=0')
                       .then(res=>{
                         if (res.status==200){
@@ -78,7 +80,8 @@ Status(){
                                 this._authService.setMessage(data)
                                 this.dataSource.stavigiPodatociteOdGetot(data)
                                 event.target.hidden=true;
-                                
+                                this.dataSource.paginator._changePageSize(this.dataSource.paginator.pageSize);
+                                this.responseproekt=data
                                 //console.log('Eve sto prakjam od fetchot vo Kraj funkcijata so setMessage')
                                 //event.target.parentNode.parentNode.parentNode.parentNode.hidden=true;
                               }) 
@@ -95,6 +98,8 @@ Status(){
   }
 
   Kraj(ID,event){ 
+    console.log(ID)
+    console.log(this.responseproekt.ProjectTasks)
     fetch('https://estitask.com/api/api/projecttask/FinishProjectTask?projectId='+this.responseproekt.ProjectTasks[ID].ProjectId+'&projectTaskId='+this.responseproekt.ProjectTasks[ID].Id+'&finishedUserEmail='+this.response.User.Email)
     .then(res=>{
       if (res.status==200){
@@ -106,8 +111,10 @@ Status(){
               //console.log('Eve sto prakjam od fetchot vo Kraj funkcijata so setMessage')
               this._authService.setMessage(data)
               this.dataSource.stavigiPodatociteOdGetot(data)
+              this.dataSource.paginator._changePageSize(this.dataSource.paginator.pageSize);
+              this.responseproekt=data
               //console.log('Eve sto prakjam od fetchot vo Kraj funkcijata so setMessage')
-              event.target.parentNode.parentNode.parentNode.parentNode.hidden=true;
+              //event.target.parentNode.parentNode.parentNode.parentNode.hidden=true;
             })  
           }
         }
