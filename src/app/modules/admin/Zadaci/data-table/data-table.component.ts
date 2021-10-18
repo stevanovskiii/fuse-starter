@@ -44,6 +44,9 @@ export class DataTableComponent implements AfterViewInit {
 
 }
 
+seIzvrsuva="Се извршува"
+naCekanje="На чекање"
+
 ZemiPodatoci(){
   fetch('https://estitask.com/api/api/projecttask/GetProjectTasksForUser?languageId=1&isDeleted=false&userId='+this.response.User.Id)
             .then(res=>{
@@ -62,18 +65,30 @@ Status(){
       }
     }
   
-  ZapocniProekt(ID){
+  ZapocniProekt(ID,event){
     fetch('https://estitask.com/api/api/projecttask/StartProjectTask?projectTaskId='+this.responseproekt.ProjectTasks[ID].Id+'&reliedTaskId=0')
                       .then(res=>{
                         if (res.status==200){
                           fetch('https://estitask.com/api/api/projecttask/GetProjectTasksForUser?languageId=1&isDeleted=false&userId='+this.response.User.Id)
-                              var element = <HTMLInputElement> document.getElementById("zapocni");
-                              element.hidden = true;
+                              .then(res=>{
+                                return res.json()
+                              })
+                              .then(data=> {
+                                //console.log('Eve sto prakjam od fetchot vo Kraj funkcijata so setMessage')
+                                this._authService.setMessage(data)
+                                this.dataSource.stavigiPodatociteOdGetot(data)
+                                event.target.hidden=true;
+                                
+                                //console.log('Eve sto prakjam od fetchot vo Kraj funkcijata so setMessage')
+                                //event.target.parentNode.parentNode.parentNode.parentNode.hidden=true;
+                              }) 
+                              //var element = <HTMLInputElement> document.getElementById("zapocni");
+                              //element.hidden = true;
                               //element.hidden=true;
                               console.log('Tranje kopce ova nad mene')
                         }
                             else{
-                              element.hidden=false;
+                              //element.hidden=false;
                             }
                           }
                       )
@@ -90,6 +105,7 @@ Status(){
             .then(data=> {
               //console.log('Eve sto prakjam od fetchot vo Kraj funkcijata so setMessage')
               this._authService.setMessage(data)
+              this.dataSource.stavigiPodatociteOdGetot(data)
               //console.log('Eve sto prakjam od fetchot vo Kraj funkcijata so setMessage')
               event.target.parentNode.parentNode.parentNode.parentNode.hidden=true;
             })  
@@ -110,11 +126,17 @@ Status(){
           let a = window.document.getElementById('SkrieniKopcina')!;
           a.style.display='block';
           this.OtvoriFiltriBool = true;
+
+          let b = window.document.getElementById('data-table')!;
+          b.style.marginTop='147px';
         }
         else if (this.OtvoriFiltriBool==true){ 
           let a = window.document.getElementById('SkrieniKopcina')!;
           a.style.display='none';
           this.OtvoriFiltriBool = false;
+
+          let b = window.document.getElementById('data-table')!;
+          b.style.marginTop='52px';
         }
     }
 

@@ -1,6 +1,6 @@
 <script data-require="angular.js@1.2.x" src="https://code.angularjs.org/1.2.22/angular.js" data-semver="1.2.22"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-<div class="mat-elevation-z8 data-table">
+<div class="mat-elevation-z8 data-table" id="data-table">
   <div class="GlavnaKlasaFiltriZaPrebaruvanje">
     <div id="FiltriPrebaruvanje" >
       <div (click)='OtvoriFiltri()' class='dropBtn'>
@@ -42,11 +42,13 @@
             <button (click)="View(row.ID)" (click)='kopcina()' class="py-0.5 px-3 rounded-full text-sm font-semibold text-blue-800 bg-blue-300 dark:text-blue-50 dark:bg-blue-500 ng-star-inserted"><span style="font-size:11px">Преглед</span></button><br>
           </div>
           <div id="dolno">
-            <button (click)="Kraj(row.ID,$event)" class="py-0.5 px-3 rounded-full text-sm font-semibold text-pink-800 bg-pink-300 dark:text-pink-50 dark:bg-pink-500 ng-star-inserted kopce">Крај</button>
+            <button *ngIf='row.Status==seIzvrsuva' (click)="Kraj(row.ID,$event)" class="py-0.5 px-3 rounded-full text-sm font-semibold text-pink-800 bg-pink-300 dark:text-pink-50 dark:bg-pink-500 ng-star-inserted kopce">Крај</button>
+            <button *ngIf='row.Status==naCekanje' class="py-0.5 px-3 rounded-full text-sm font-semibold text-gray-800 bg-gray-300 dark:text-gray-50 dark:bg-gray-500 ng-star-inserted kopce"></button>
           </div>
           <br>
           <div id="zapocni">
-            <button (click)="ZapocniProekt(row.ID)" class="font-bold text-xs px-2.5 py-0.5 rounded-full tracking-wide bg-green-200 text-green-800 dark:bg-green-600 dark:text-green-50">Започни</button>
+            <button *ngIf='row.Status==naCekanje' (click)="ZapocniProekt(row.ID,$event)" class="font-bold text-xs px-2.5 py-0.5 rounded-full tracking-wide bg-green-200 text-green-800 dark:bg-green-600 dark:text-green-50">Започни</button>
+            <button *ngIf='row.Status==seIzvrsuva' class="font-bold text-xs px-2.5 py-0.5 rounded-full tracking-wide bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-50"></button>
           </div>
         </div>
       </td>
