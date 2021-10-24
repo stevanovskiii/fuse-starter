@@ -13,7 +13,8 @@ import { LayoutModule } from 'app/layout/layout.module';
 import { AppComponent } from 'app/app.component';
 import { appRoutes } from 'app/app.routing';
 import { HttpClientModule} from '@angular/common/http';
-
+import { FuseCardModule} from '@fuse/components/card';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 const routerConfig: ExtraOptions = {
     preloadingStrategy       : PreloadAllModules,
@@ -24,11 +25,13 @@ const routerConfig: ExtraOptions = {
     declarations: [
         AppComponent,
     ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
     imports     : [
         BrowserModule,
         BrowserAnimationsModule,
         RouterModule.forRoot(appRoutes, routerConfig),
         HttpClientModule,
+        FuseCardModule,
 
         // Fuse, FuseConfig & FuseMockAPI
         FuseModule,

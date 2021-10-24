@@ -22,6 +22,7 @@ import { WorkComponent } from './common/work/work.component';
 import { UploadFileComponent } from './common/upload-file/upload-file.component';
 import { GalleryComponent } from './common/gallery/gallery.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { FuseCardModule } from '@fuse/components/card';
 
 const layoutModules = [
     // Empty
@@ -32,6 +33,7 @@ const layoutModules = [
     EnterpriseLayoutModule,
     MaterialLayoutModule,
     ModernLayoutModule,
+    FuseCardModule,
 
     // Vertical navigation
     ClassicLayoutModule,

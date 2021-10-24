@@ -7,9 +7,8 @@ import { UploadFileComponent } from '../upload-file/upload-file.component';
 import { WorkComponent } from '../work/work.component';
 import { GalleryComponent } from '../gallery/gallery.component';
 import { Inject } from '@angular/core';
-import {MAT_DIALOG_DATA} from '@angular/material/dialog';
-
-
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AuthService } from 'app/core/auth/auth.service';
 @Component({
   selector: 'app-view-task',
   templateUrl: './view-task.component.html',
@@ -17,8 +16,12 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 })
 export class ViewTaskComponent implements OnInit {
 data:any
-  constructor(public dialogRef: MatDialogRef<DataTableComponent>,private dialog: MatDialog,@Inject(MAT_DIALOG_DATA) data) {
+  response: any;
+  responseproekt: any;
+  constructor(public dialogRef: MatDialogRef<DataTableComponent>,private dialog: MatDialog,@Inject(MAT_DIALOG_DATA) data, private _authService:AuthService) {
     this.data=data;
+    this.response=this._authService.getPodatociUser()
+    this.responseproekt=this._authService.getMessage()
    }
 
   ngOnInit(): void {
@@ -61,6 +64,14 @@ data:any
   }
 
   OpenComments(){
+    fetch('https://estitask.com/api/api/typeinfo/GetTypeInfos?companyId=4')
+    .then(res=>{
+      return res.json()
+    })
+    fetch('https://estitask.com/api/api/projecttask/GetTaskInfos?projectTaskId=13009')
+    .then(res=>{
+      return res.json()
+    })
     const dialogConfig = new MatDialogConfig();
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
