@@ -112,3 +112,20 @@ td.mat-cell{
 th.mat-header-cell{
   padding-left:10px;
 }
+
+.SelectActivProjects{
+  display: inline;
+  width: 155px;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+#SelektirajProekt{
+  margin-top: 10px;
+  max-width: 350px;
+  display: inline;
+}
+
+#SelektirajproektTekst{
+  display: inline;
+}
