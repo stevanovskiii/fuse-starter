@@ -32,9 +32,17 @@
     <!-- Poceten izgled -->
     <ng-container fuseCardFront>
         <div class="flex flex-col px-8 py-6 pb-3">
-            <div class="text-lg font-bold">Име на коментаорт</div>
+            <div class="text-lg font-bold">Име на коментарот</div>
             <div class="mt-2">
-                Раде Стевановски
+                {{data.TaskInfos[0].UserComment.FullName}}
+            </div>
+            <div class="text-lg font-bold">Датум</div>
+            <div class="mt-2">
+                {{data.TaskInfos[0].CreateDate}}
+            </div>
+            <div class="text-lg font-bold">Тип на порака</div>
+            <div class="mt-2">
+                {{data.TaskInfos[0].TypeInfo}}
             </div>
             <div class="mt-3 -mx-3 self-end">
                 <button
@@ -61,8 +69,9 @@
                         [svgIcon]="'heroicons_outline:arrow-left'"></mat-icon>
                 </button>
             </div>
+            <div class="text-lg font-bold">Коментар</div>
             <p class="text-secondary">
-                Коментарот овде.
+                {{data.TaskInfos[0].Description}}
             </p>
         </div>
     </ng-container>

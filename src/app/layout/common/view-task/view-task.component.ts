@@ -71,24 +71,39 @@ data:any
     fetch('https://estitask.com/api/api/projecttask/GetTaskInfos?projectTaskId=13009')
     .then(res=>{
       return res.json()
-    })
-    const dialogConfig = new MatDialogConfig();
+    }).then(data=> {
+        const dialogConfig = new MatDialogConfig();
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
         dialogConfig.width = "350px";
         dialogConfig.height = "490px";
         dialogConfig.minWidth = "295px";
+        dialogConfig.data = data;
         this.dialog.open(CommentsComponent,dialogConfig)
+      }
+    )
+    
   }
 
   OpenWork(){
-    const dialogConfig = new MatDialogConfig();
-        dialogConfig.disableClose = true;
-        dialogConfig.autoFocus = true;
-        dialogConfig.width = "350px";
-        dialogConfig.height = "640px";
-        dialogConfig.minWidth = "295px";
-        this.dialog.open(WorkComponent,dialogConfig)
+    fetch('https://estitask.com/api/api/projecttask/GetTaskEstimations?projectTaskId=13009&createUserId=5092&userRoleId=4')
+    .then(res=>{
+      return res.json()
+    })
+    fetch('https://estitask.com/api/api/projecttask/FillUser?companyId=4')
+    .then(res=>{
+      return res.json()
+    }).then(data=> {
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.disableClose = true;
+      dialogConfig.autoFocus = true;
+      dialogConfig.width = "350px";
+      dialogConfig.height = "640px";
+      dialogConfig.minWidth = "295px";
+      dialogConfig.data = data;
+      this.dialog.open(WorkComponent,dialogConfig)
+      }
+    )
   }
 
   OpenUploadFile(){
